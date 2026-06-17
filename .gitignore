@@ -3,3 +3,6 @@ node_modules
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+.env
+.env.*
+!.env.example
