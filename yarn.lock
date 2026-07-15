@@ -9,15 +9,89 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "GestSIS_Doc@workspace:."
   dependencies:
-    retypeapp: "npm:^3.11.0"
+    retypeapp: "npm:^4.6.0"
   languageName: unknown
   linkType: soft
 
-"retypeapp@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "retypeapp@npm:3.11.0"
+"retypeapp-darwin-arm64@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-darwin-arm64@npm:4.6.0"
   bin:
     retype: retype.js
-  checksum: 10c0/8bc5b5cc190ed468adfade049f55bd23dce43766358c2a8fac6e06b50e6006ea761bd8a64ad0eb2a3c6ee33a6bc60571f508ec422763ad47885714fd3e0d574b
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"retypeapp-darwin-x64@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-darwin-x64@npm:4.6.0"
+  bin:
+    retype: retype.js
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"retypeapp-linux-arm64@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-linux-arm64@npm:4.6.0"
+  bin:
+    retype: retype.js
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"retypeapp-linux-x64@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-linux-x64@npm:4.6.0"
+  bin:
+    retype: retype.js
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"retypeapp-win-x64@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-win-x64@npm:4.6.0"
+  bin:
+    retype: retype.js
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"retypeapp-win-x86@npm:4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp-win-x86@npm:4.6.0"
+  bin:
+    retype: retype.js
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"retypeapp@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "retypeapp@npm:4.6.0"
+  dependencies:
+    retypeapp-darwin-arm64: "npm:4.6.0"
+    retypeapp-darwin-x64: "npm:4.6.0"
+    retypeapp-linux-arm64: "npm:4.6.0"
+    retypeapp-linux-x64: "npm:4.6.0"
+    retypeapp-win-x64: "npm:4.6.0"
+    retypeapp-win-x86: "npm:4.6.0"
+  dependenciesMeta:
+    retypeapp-darwin-arm64:
+      optional: true
+    retypeapp-darwin-x64:
+      optional: true
+    retypeapp-linux-arm64:
+      optional: true
+    retypeapp-linux-x64:
+      optional: true
+    retypeapp-win-x64:
+      optional: true
+    retypeapp-win-x86:
+      optional: true
+  bin:
+    retype: retype.js
+  checksum: 10c0/8e71f87adb6bfa47099e65e9eb3e2d316fa1982d0d90c188eb88dcdb5b7b3e7d12fdacdda87672d3acfce01145ec1e2b5d7446aff5e22c9d01201929d60d822b
   languageName: node
   linkType: hard
