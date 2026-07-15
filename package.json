@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "retypeapp": "^3.11.0"
+    "retypeapp": "^4.6.0"
   },
   "scripts": {
     "docs:dev": "retype start"
