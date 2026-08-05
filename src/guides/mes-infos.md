@@ -19,6 +19,8 @@ Sélectionnez l'exercice concerné et pressez sur le bouton [!button size="s" te
 
 !!! Fichier e-calendrier
 Vous pouvez télécharger un fichier i-calendrier contenant l'ensemble de vos exercices afin de l'ajouter à votre agenda.
+
+Pour un agenda qui se mets à jour automatiquement plutôt qu'un fichier à re-télécharger, voir la page [Agenda (abonnement ICS)](./agenda-ics.md).
 !!!
 
 ## Mes décomptes
