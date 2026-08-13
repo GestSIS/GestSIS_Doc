@@ -5,7 +5,8 @@ icon: ":firefighter:"
 
 Ce module permet la gestion de l'ensembles des sapeurs et civiles qui collaborent avec le SIS.
 
-Il existe actuellement deux types de personnes, les [!badge sapeurs] et les [!badge politiques].
+Il existe actuellement trois types de personnes, les [!badge sapeurs], les [!badge politiques] et les
+[!badge recrues] (candidats en attente de validation, voir [Recrutement](./recrutement.md)).
 
 !!! Informations
 La [!badge fonction principale], le [!badge grade actuel] et le statut [!badge actif] sont mis à jour automatiquement afin de reflèter les fonctions, promotions et mutations saisies. Ils ne peuvent ainsi pas être modifié directement.
