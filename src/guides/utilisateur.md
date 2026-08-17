@@ -22,6 +22,16 @@ Ces personnes n'étant pas enregistrées dans GestSIS, il n'est pas possible pou
 L'onglet `Sapeurs sans comptes` permet d'identifier les sapeurs n'ayant pas encore créé de comptes.
 Vous avez la possibilité à travers cette interface de facilement leur envoyer un email afin de les inviter à créer un compte sur la plateforme GestSIS.
 
+## Désactivation automatique des accès obsolètes
+
+Pour éviter que d'anciens sapeurs gardent indéfiniment un accès à GestSIS, le système nettoie automatiquement les droits qui ne sont plus justifiés :
+
+- **Rôle retiré immédiatement** : dès qu'un sapeur devient inactif dans un SIS, ses rôles pour ce SIS sont retirés sans délai, même si personne n'a pensé à le faire manuellement.
+- **Compte désactivé après 30 jours** : un compte qui ne possède plus aucun rôle (et n'est plus rattaché à aucun sapeur actif, dans aucun SIS) reçoit un email l'informant que son compte sera désactivé dans 30 jours. Ce délai lui laisse le temps de récupérer d'éventuels décomptes en attente. Passé ce délai, la connexion est refusée si la situation n'a pas changé.
+- **Accès à un SIS coupé après 30 jours** : si un sapeur reste actif dans un autre SIS mais quitte l'un d'eux, seul son accès à ce SIS précis est coupé après le même délai de 30 jours (avec un email d'avertissement) — le reste de son compte continue de fonctionner normalement.
+
+Si la situation redevient normale avant l'échéance (rôle réattribué, sapeur réactivé), la désactivation prévue est annulée automatiquement, sans action requise de votre part.
+
 ## Configuration
 
 Voici la liste de toutes les permissions disponibles :
