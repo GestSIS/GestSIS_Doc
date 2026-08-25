@@ -28,7 +28,7 @@ séparément si vous voulez recevoir les événements de tous vos SIS dans votre
    `Ajouter un compte avec abonnement`, puis collez le lien.
 3. Sur Mac : ouvrez `Calendrier`, menu `Fichier` > `Nouvel abonnement...`, puis collez le lien.
 
-### :robot: Android / Google Calendar
+### :robot_face: Android / Google Calendar
 
 Google Calendar sur mobile ne permet pas d'ajouter un abonnement par URL directement. Il faut passer
 une fois par un ordinateur :
