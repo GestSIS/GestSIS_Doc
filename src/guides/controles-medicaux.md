@@ -4,10 +4,10 @@ icon: ":heart:" # pulse
 title: Contrôles médicaux
 ---
 
-Ce module permet d'assurer le suivi des contrôles médicaux, notamment pour les porteurs (ARI).
+Ce module permet d'assurer le suivi périodique des contrôles médicaux des sapeurs, selon des types configurables.
 
-L'interface de visualisation des contrôles médicaux en cours affiche par défaut uniquement les derniers contrôles médicaux en cours.
-Il est possible de filtrer ceux-ci par année d'échéance afin d'identifier ceux à renouveler durant l'année.
+L'interface de visualisation des contrôles médicaux en cours affiche par défaut uniquement le dernier contrôle en cours de chaque sapeur.
+Il est possible de filtrer ceux-ci par année de consultation et par année de validité afin d'identifier ceux à renouveler durant l'année.
 
 ## Permissions
 
@@ -25,7 +25,6 @@ Sous configurations vous avez la possibilité de configurer les données suivant
 
 ### Contrôles médicaux types
 
-Il est possible de configurer la durée de base de chaque contrôle médical type.
-Actuellement, une seule valeur est configurable même si celle-ci évolue avec l'âge.
-Il est cependant possible d'ajouter dans le champ remarque les valeurs particulières.
-Celles-ci seront visible lors de la modification ou la saisie d'un contrôle.
+Pour chaque type de contrôle médical, on configure une désignation, une **période de validité** (en années) avant renouvellement, et un statut **Expirable** — un type non expirable n'a pas d'échéance de renouvellement calculée.
+
+Un champ **remarque** libre permet de noter les valeurs particulières (par exemple des durées de validité différentes selon l'âge) ; il est visible lors de la saisie ou la modification d'un contrôle de ce type.

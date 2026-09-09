@@ -11,7 +11,7 @@ L'interface principale du module permet la visualisation de l'ensemble des exerc
 Lors de la saisie des présences, vous devez choisir l'une des trois possibilités `Présent`, `Absent` ou `Remplacé`.
 Chaque sapeur pourra ensuite ajouter une excuse si le sous-module `Excuse` a été activée (voir point `Sous-module excuse` plus bas).
 
-<!-- TODO: Heures supp pour exercice -->
+Si des heures additionnelles ont été configurées (voir le guide [Comptabilité](comptabilite.md), section `Heures additionnelles pour exercice`), des colonnes supplémentaires apparaissent dans la saisie des présences pour les renseigner par sapeur.
 
 ## Validation
 
@@ -19,20 +19,24 @@ Le principe des 4 yeux est appliqué ainsi une fois un événement est saisi, un
 Le bouton permettant de valider un événement se trouve en fin de ligne.
 
 !!!
-Pour pouvoir valider un exercice, il est nécessaire au préalable que chaque sapeur convoqué soit marqué comme `Présent`, `Absent` ou `Remplacé`.
+Pour pouvoir valider un exercice, il est nécessaire au préalable que chaque sapeur convoqué soit marqué comme `Présent`, `Absent` ou `Remplacé`, ou dispose d'une excuse traitée (voir `Traitement des absences` ci-dessous).
 !!!
 
 ## Annulation
 
 Il est possible d'annuler un exercice ou séance avec le bouton annuler.
-L'exercice ne pourra ainsi plus être modifié et n'apparaitra pas dans la compatbilité.
+L'exercice ne pourra ainsi plus être modifié et n'apparaîtra pas dans la comptabilité.
 
 ## Traitement des absences
 
 Une interface permet de faciliter le traitement des absences en fin d'année.
 En allant dans l'onglet `Absences`, il est possible de visualiser l'ensemble des absences et le bouton `Examiner les excuses non-traitées` permet de revoir les absence à la chaîne.
 
-L'avantage de cette vue est qu'elle offre toutes les informations nécessaire à son traitement, avec un résumé des convocations du sapeurs. L'absence peut ensuite être `Accepté`, `Refusé (sans amende)` et `Amendé`.
+L'avantage de cette vue est qu'elle offre toutes les informations nécessaire à son traitement, avec un résumé des convocations du sapeurs. L'absence peut ensuite être marquée `Accepté`, `Refusé`, `Amendé` (uniquement si la catégorie de l'exercice est configurée comme amendable) ou remise `A traiter`.
+
+!!!
+Marquer une absence `Amendé` ne fait que la signaler comme sujette à amende : l'écriture comptable correspondante doit ensuite être générée depuis le module `Comptabilité` (voir le guide [Comptabilité](comptabilite.md), section `Amendes`).
+!!!
 
 ![Fenêtre de traitement des absences](../images/modal-revue-absence.jpg)
 

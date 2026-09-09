@@ -5,11 +5,18 @@ icon: quote
 
 Ce module permet de gérer les groupes (administratif ou d'alarme).
 
+## Actions
+
+Après avoir sélectionné un groupe dans l'arborescence, le bloc `Actions` permet de :
+
+- [!badge Ajouter/enlever des sapeurs] du groupe sélectionné
+- [!badge Ajouter un groupe] ou [!badge Modifier le groupe] sélectionné (ouvre une fenêtre dédiée)
+- [!badge Supprimer] le groupe sélectionné (supprime aussi tous ses sous-groupes)
+- Réorganiser le groupe sélectionné avec les boutons `←` `→` `↑` `↓` (déplacer parmi ses frères et sœurs, ou changer de niveau hiérarchique)
+
 ## Mode édition
 
-Pour modifier la structure des groupes, cliquer sur le bouton [!button size="xs" icon="pencil"] à droite.
-
-Une fois en mode édition, il est possible de modifier les informations de chaque groupe directement à droite de l'écran.
+L'interrupteur `Mode édition` (au-dessus de l'arborescence) affiche, directement à côté de chaque groupe, des flèches de réorganisation rapides équivalentes à celles du bloc `Actions`.
 
 ## Groupes d'alarme
 

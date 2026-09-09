@@ -40,3 +40,7 @@ Vous pouvez cliquer sur le bouton [!button text="Saisir une absence" size="s"] p
 
 :warning: Ceci ne vous excuse pas aux exercices, vous devrez également vous excuser à chaque exercice durant cette période ! :warning:
 !!!
+
+## Autres onglets
+
+Selon les modules auxquels vous avez accès, votre profil contient également des onglets en lecture seule reprenant vos propres données : `Mes interventions`, `Mes cours`, `Mon matériel` (attribué) et `Ma fiche de travail`.

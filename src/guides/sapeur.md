@@ -16,10 +16,18 @@ La [!badge fonction principale], le [!badge grade actuel] et le statut [!badge a
 
 Seuls les numéros de téléphone avec la case `RTA` cochée sont utilisés dans le module RTA. Seuls 3 numéros maximum peuvent être saisis par sapeur.
 
-## Mutations (Démission)
+## Mutations
 
 Les mutations permettent de gérer les déménagements ainsi que les départs du SIS.
 Lors du clic sur le bouton [!badge Fin de service], il est possible de supprimer les exercices restants du sapeurs ainsi que de mettre fin à ses fonctions.
+
+## Fonctions, Promotion et Permis
+
+Les onglets `Fonctions` et `Promotion` retracent l'historique des fonctions et grades du sapeur — ce sont ces entrées qui alimentent automatiquement la fonction principale et le grade actuel affichés sur sa fiche.
+
+L'onglet `Permis` liste les permis de conduire du sapeur.
+
+Les autres onglets de la fiche sapeur (`Materiel`, `Organisation`, `Banque`, `Exercice`, `Intervention`) reprennent simplement, pour ce sapeur, les données déjà décrites dans les guides [Matériel](materiel.md), [Organisation](organisation.md), [Comptabilité](comptabilite.md), [Exercices & séances](exercice-seances.md) et [Intervention](intervention.md).
 
 ## Cours
 

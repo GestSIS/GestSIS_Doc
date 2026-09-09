@@ -11,7 +11,7 @@ mets à jour automatiquement : pas besoin de re-télécharger un fichier après 
 ## Obtenir son lien
 
 Depuis la page d'accueil, cliquez sur le bouton [!button size="s" text="S'abonner à mon agenda"]
-au-dessus de la liste `Vos prochains exercices`. Une fenêtre s'ouvre avec un lien par SIS auquel vous
+au-dessus de la liste `Vos prochaines convocations`. Une fenêtre s'ouvre avec un lien par SIS auquel vous
 appartenez.
 
 !!!

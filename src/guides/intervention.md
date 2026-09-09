@@ -20,13 +20,14 @@ Voici les différentes options disponibles :
 - [ ] Informations générales
 - [ ] Description de l'intervention
 - [ ] Groupes alarmés
-- [ ] Détails des présences des sapeurs
-- [ ] Véhicules mobilisés
+- [ ] Détails des présences des sapeurs _(ou, alternativement, un résumé simplifié des présences)_
+- [ ] Véhicules mobilisé
 - [ ] Matériel utilisé
-- [ ] Sapeurs non-présents
+- [ ] Sapeurs non-présent
 - [ ] Indication du traitement du rapport
 - [ ] Missions de l'intervention
 - [ ] Appels durant l'intervention
+- [ ] Jalons de l'intervention
 - [ ] Informations financières (montant) _Si imputé_
 
 ## Saisie des présences et phases d'intervention
@@ -41,7 +42,7 @@ Finalement, lors de l'ajout d'une présence, il est également possible de préc
 Voici l'ensemble des paramètres disponible dans la configuration
 
 - Véhicules
-- Matériel consommable et en prêt
+- Matériel
 - Missions
 - Téléphones
 - Traitement (statut)

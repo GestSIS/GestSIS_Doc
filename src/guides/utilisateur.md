@@ -75,7 +75,7 @@ Voici la liste de toutes les permissions disponibles :
 - **SMS lecture** -> Visualisation de l'historique des SMS envoyés
 - **SMS envoie** -> Permet l'envoi de SMS quand disponible
 - **SMS config** -> Configuration du compte aspsms
-- **RTA lecture** -> Accès aux informations RTA
-- **RTA modification** -> Envoi de modifications au RTA
-- **RTA config** -> Configuration du RTA
+- **RTA lecture** -> Accès à l'ensemble des onglets RTA, y compris l'envoi des mutations au CET
+- **RTA modification** -> Ajout/modification des contacts dans l'onglet Agriculteurs
+- **RTA config** -> Inutilisé pour le moment
 - **Admin** -> Inutilisé pour le moment
