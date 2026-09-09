@@ -7,16 +7,14 @@ Le but du module publipostage est de permettre la récupération de toutes les d
 
 Pour ce faire, ce module offre la possibilité de récupérer ces données au format `Excel (.xlsx)` via un simple clic sur le bouton [!badge Fichier Excel].
 
-## Filtres
+## Sélection des sapeurs
 
 Par défaut, l'ensemble des sapeurs est sélectionné mais il est possible de restreindre la sélection !
 
-Pour ce faire, à droite de la fenêtre se trouve la section [!badge option].
+Pour ce faire, cliquez sur le champ `Sélection des sapeurs` ou sur le bouton [!badge Sélection] : la fenêtre de sélection s'ouvre et permet de choisir les sapeurs voulus.
 
-![Options pour publipostage](../images/publipostage-options.jpg)
-
-Lors du clic sur le bouton [!badge Sélection des sapeurs], la fenêtre de sélection va s'ouvrir permettant de choisir les sapeurs voulus.
+![Sélection des sapeurs pour le publipostage](../images/publipostage-options.jpg)
 
 [!ref icon="rocket" text="Fenêtre de sélection"](../outils/fenetre-selection.md)
 
-Il est possible de réinitialiser la sélection des sapeurs à l'aide du bouton `Réinitialiser la sélection`.
+Une fois une sélection restreinte faite, il est possible de la réinitialiser à l'aide du bouton [!badge Réinitialiser].
