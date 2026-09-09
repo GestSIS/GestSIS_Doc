@@ -23,8 +23,8 @@ et remplissent directement le formulaire sur leur propre téléphone.
 Le formulaire se déroule en 2 étapes :
 
 1. Identité et contact : civilité, nom, prénom, date de naissance, adresse, email.
-2. Informations complémentaires : n° AVS, profession, employeur, IBAN, téléphones et permis de
-   conduire.
+2. Informations complémentaires : n° AVS, profession, employeur, lieu de travail, IBAN, téléphones et
+   permis de conduire.
 
 Une confirmation est demandée avant l'envoi définitif des données.
 

@@ -3,13 +3,13 @@ order: 40
 icon: ":email:"
 ---
 
-Le but du module publipostage est de permettre la récupération toutes les données sapeurs nécessaires au publipostage.
+Le but du module publipostage est de permettre la récupération de toutes les données sapeurs nécessaires au publipostage.
 
-Pour ce faire, ce module offre la possibilité de récupérer ces données au format `Excel (.xlsx)` via un simple clique sur le bouton [!badge Fichier Excel].
+Pour ce faire, ce module offre la possibilité de récupérer ces données au format `Excel (.xlsx)` via un simple clic sur le bouton [!badge Fichier Excel].
 
 ## Filtres
 
-Par défault, l'ensemble des sapeurs sont sélectionné mais il est possible de restreindre la sélection !
+Par défaut, l'ensemble des sapeurs est sélectionné mais il est possible de restreindre la sélection !
 
 Pour ce faire, à droite de la fenêtre se trouve la section [!badge option].
 

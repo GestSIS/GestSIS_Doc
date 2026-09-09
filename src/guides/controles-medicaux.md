@@ -4,14 +4,14 @@ icon: ":heart:" # pulse
 title: Contrôles médicaux
 ---
 
-Ce module permet d'assurer le suivi des contrôles médicaux notemment porteur.
+Ce module permet d'assurer le suivi des contrôles médicaux, notamment pour les porteurs (ARI).
 
-L'interface de visualisation des contrôles médicaux en cours affiche par défault uniquement les derniers contrôles médicaux en cours.
+L'interface de visualisation des contrôles médicaux en cours affiche par défaut uniquement les derniers contrôles médicaux en cours.
 Il est possible de filtrer ceux-ci par année d'échéance afin d'identifier ceux à renouveler durant l'année.
 
 ## Permissions
 
-Voici les 3 permissions existantes :
+Voici les 2 permissions existantes :
 
 - Tout : Visualisation et saisie des contrôles médicaux
 - Configuration : Pour configurer les médecins, types

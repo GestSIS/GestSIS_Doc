@@ -5,7 +5,7 @@ icon: ":beach_with_umbrella:"
 
 Ce module permet d'assurer le suivi des absences durant l'année.
 
-L'idée de ce module est d'avoir une idée du nombre de sapeurs disponible durant les différentes périodes de l'année.
+L'idée de ce module est d'avoir une idée du nombre de sapeurs disponibles durant les différentes périodes de l'année.
 Et de ne pas avoir de mauvaises surprises en cas d'intervention avec un effectif très réduit.
 
 ## Permissions

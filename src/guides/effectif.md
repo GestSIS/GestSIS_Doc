@@ -8,7 +8,7 @@ Le module effectif permet d'avoir à travers une vue simple un résumé de l'eff
 Cette interface permet de facilement récupérer un sous ensemble des sapeurs et de :
 
 - Fiche de contact (vcard)
-- Envoie email
-- Envoie SMS
+- Envoi email
+- Envoi SMS
 
 Ainsi que de récupérer le fichier d'effectif demandé par la FSSP.

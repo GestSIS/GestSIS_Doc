@@ -57,9 +57,9 @@ Voici la liste de toutes les permissions disponibles :
 - **Cours lecture** -> Visualisation de la liste des cours
 - **Cours modification** -> Inutilisé pour le moment
 - **Cours config** -> Inutilisé pour le moment
-- **Matériel lecture** -> Visualisation du matériel personnel
-- **Matériel modification** -> Saisie et suivi du matériel personnel
-- **Matériel config** -> Configuration pour le module matériel personnel
+- **Matériel lecture** -> Visualisation du matériel de chaque sapeur et en stock
+- **Matériel modification** -> Saisie et suivi du matériel
+- **Matériel config** -> Configuration pour le module matériel
 - **Organisation modification** -> Permet la configuration des différents groupes et donne accès à l'interface RTA
 - **Absences lecture** -> Visualisation de la liste des absences
 - **Absences modification** -> Saisie d'absence pour tous les sapeurs
@@ -72,6 +72,7 @@ Voici la liste de toutes les permissions disponibles :
 - **Utilisateur** -> Pour la gestion des utilisateurs et de leurs rôles
 - **Config pour utilisateur** -> Configuration des différents rôles
 - **Config générale** -> Configuration des informations générales du SIS
+- **SMS lecture** -> Visualisation de l'historique des SMS envoyés
 - **SMS envoie** -> Permet l'envoi de SMS quand disponible
 - **SMS config** -> Configuration du compte aspsms
 - **RTA lecture** -> Accès aux informations RTA

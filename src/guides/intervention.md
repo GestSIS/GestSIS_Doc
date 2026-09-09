@@ -21,9 +21,9 @@ Voici les différentes options disponibles :
 - [ ] Description de l'intervention
 - [ ] Groupes alarmés
 - [ ] Détails des présences des sapeurs
-- [ ] Véhicules mobilisé
+- [ ] Véhicules mobilisés
 - [ ] Matériel utilisé
-- [ ] Sapeurs non-présent
+- [ ] Sapeurs non-présents
 - [ ] Indication du traitement du rapport
 - [ ] Missions de l'intervention
 - [ ] Appels durant l'intervention
@@ -31,8 +31,8 @@ Voici les différentes options disponibles :
 
 ## Saisie des présences et phases d'intervention
 
-Les présences des sapeurs aux intervention sont saisies au quart d'heure afin de simplifier le processur de payement.
-La notion de phase a pour object de différencier les heures d'intervention des heures de rétablissement.
+Les présences des sapeurs aux interventions sont saisies au quart d'heure afin de simplifier le processus de paiement.
+La notion de phase a pour objet de différencier les heures d'intervention des heures de rétablissement.
 
 Finalement, lors de l'ajout d'une présence, il est également possible de préciser qu'une présence correspond à du piquet.
 

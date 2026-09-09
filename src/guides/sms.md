@@ -3,11 +3,11 @@ order: 99
 icon: ":calling:"
 ---
 
-Il est possible à travers plusieurs modules de GestSIS d'envoyer des SMS.
+Il est possible à travers plusieurs modules de GestSIS d'envoyer des SMS. La page `SMS` du menu principal donne accès à l'historique des SMS envoyés, par exercice comptable.
 
 ## Configuration
 
-GestSIS utilise en arrière plan le service ASPSMS. Pour l'utiliser, il est nécessaire de charger des crédits, qui seront débité à chaque envoie.
+GestSIS utilise en arrière plan le service ASPSMS. Pour l'utiliser, il est nécessaire de charger des crédits, qui seront débités à chaque envoi.
 
 !!!
 Pour recharger des crédits, vous pouvez vous connecter avec votre compte ASPSMS ici :
@@ -18,8 +18,9 @@ Votre compte ASPSMS est configurable dans configuration et vous pourrez égaleme
 
 ## Permissions
 
-Voici les 2 permissions existantes :
+Voici les 3 permissions existantes :
 
-- Envoie : Permets l'envoie de SMS à travers les différents modules de GestSIS
+- Lecture : Visualisation de l'historique des SMS envoyés
+- Envoi : Permet l'envoi de SMS à travers les différents modules de GestSIS
 - Configuration : Permet la modification et configuration du compte ASPSMS
 

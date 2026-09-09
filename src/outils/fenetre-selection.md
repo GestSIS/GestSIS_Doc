@@ -6,7 +6,7 @@ title: Fenêtre de sélection
 
 La fenêtre de sélection permet de sélectionner un sous-ensemble de sapeurs et est commune à plusieurs modules.
 
-Cette fenêtre est séparé en 3 parties, les options (en haut), la liste des sapeurs sélectionnés (à gauche) et les sapeurs disponible (à droite), regarder l'image ci-dessous :
+Cette fenêtre est séparée en 3 parties : les options (en haut), la liste des sapeurs sélectionnés (à gauche) et les sapeurs disponibles (à droite). Voir l'image ci-dessous :
 
 ![Fenêtre de sélection](../images/modal-selection.jpg)
 
@@ -30,6 +30,6 @@ Il est possible de grouper l'affichage des sapeurs avec les options suivantes :
 - Année d'incorporation
 - Type (Sapeur / Politique)
 
-De plus, par défault les politiques sont affichés et les sapeurs inactifs masqués.
-Cependant il est également possible de masquer les politique et d'afficher les sapeurs inactifs.
+De plus, par défaut les politiques sont affichés et les sapeurs inactifs masqués.
+Cependant il est également possible de masquer les politiques et d'afficher les sapeurs inactifs.
 Ce qui peut-être utile pour la convocation d'anciens sapeurs.

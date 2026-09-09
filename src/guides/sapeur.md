@@ -14,7 +14,7 @@ La [!badge fonction principale], le [!badge grade actuel] et le statut [!badge a
 
 ## Téléphones
 
-Seul les numéros de téléphones avec la case `RTA` de coché sont utilisé dans le module RTA. Seul 3 numéros maximum peuvent être saisi par sapeur.
+Seuls les numéros de téléphone avec la case `RTA` cochée sont utilisés dans le module RTA. Seuls 3 numéros maximum peuvent être saisis par sapeur.
 
 ## Mutations (Démission)
 
@@ -37,7 +37,7 @@ Les utilisateurs ayant accès au module `Contrôles médicaux` auront un onglet 
 Voici les 3 permissions existantes :
 
 - Lecture : Visualisation de l'ensemble des données sapeurs
-- Modification : Permets la modification des données sapeurs
+- Modification : Permet la modification des données sapeurs
 - Configuration : Pour configurer les fonctions, grades et cours
 
 ## Configuration

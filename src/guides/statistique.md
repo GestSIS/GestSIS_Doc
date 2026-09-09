@@ -6,7 +6,7 @@ icon: ":chart_with_upwards_trend:"
 Le module statistique permet de récupérer différents statistiques des données saisies dans GestSIS.
 Celles-ci sont organisées par module avec un onglet pour chaque module.
 
-De nombreuses statistiques sont disponible notemment concernant les temps d'intervention par type d'intervention requises par les autorités.
+De nombreuses statistiques sont disponibles, notamment concernant les temps d'intervention par type d'intervention requis par les autorités.
 
 ## Onglets disponibles
 

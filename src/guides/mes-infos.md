@@ -7,9 +7,9 @@ Ce module est disponible à chaque sapeur dès sa création de compte sans confi
 
 A travers les différents onglets, vous avez accès à toutes les données vous concernant.
 
-Quelques fonctionalités intéressantes sont disponibles.
+Quelques fonctionnalités intéressantes sont disponibles.
 
-## Mes exercice
+## Mes exercices
 
 !!! S'excuser
 Si votre SIS l'a configuré, il vous est possible de vous excuser directement à travers GestSIS !
@@ -17,8 +17,8 @@ Si votre SIS l'a configuré, il vous est possible de vous excuser directement à
 Sélectionnez l'exercice concerné et pressez sur le bouton [!button size="s" text="S'excuser"]
 !!!
 
-!!! Fichier e-calendrier
-Vous pouvez télécharger un fichier i-calendrier contenant l'ensemble de vos exercices afin de l'ajouter à votre agenda.
+!!! Fichier ICS
+Vous pouvez télécharger un fichier ICS contenant l'ensemble de vos exercices afin de l'ajouter à votre agenda.
 
 Pour un agenda qui se mets à jour automatiquement plutôt qu'un fichier à re-télécharger, voir la page [Agenda (abonnement ICS)](./agenda-ics.md).
 !!!

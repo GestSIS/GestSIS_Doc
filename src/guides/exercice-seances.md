@@ -50,10 +50,10 @@ Voici l'ensemble des paramètres disponible dans la configuration
 
 ## Permissions
 
-Voici les 4 permissions existantes :
+Voici les 5 permissions existantes :
 
 - Lecture : Visualisation de l'ensemble des exercices sans possibilité de modification
-- Présences : Permets la saisie des présences aux exercices non validé
+- Présences : Permet la saisie des présences aux exercices non validés
 - Modification : Permet la création/modification et la saisie des présences aux exercices
 - Validation : Permet de valider un exercice et de traiter les absences
 - Configuration : Pour configurer les excuses types, l'activation du système d'excuse et des catégories d'exercices
