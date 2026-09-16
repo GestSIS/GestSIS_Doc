@@ -36,6 +36,7 @@ Pour commencer, cliquez sur le module qui vous intéresse dans la liste suivante
 - [Publipostage](guides/publipostage)
 - [Statistiques](guides/statistique)
 - [Matériel](guides/materiel)
+- [Contrôles](guides/controle-materiel)
 - [Contrôles médicaux](guides/controles-medicaux)
 - [Utilisateurs](guides/utilisateur)
 - [RTA](guides/rta)

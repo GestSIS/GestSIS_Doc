@@ -42,7 +42,7 @@ Finalement, lors de l'ajout d'une présence, il est également possible de préc
 Voici l'ensemble des paramètres disponible dans la configuration
 
 - Véhicules
-- Matériel
+- Matériel consommable et en prêt
 - Missions
 - Téléphones
 - Traitement (statut)
