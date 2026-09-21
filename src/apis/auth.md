@@ -69,9 +69,7 @@ Permet à un utilisateur de se connecter et d'obtenir un access token et un refr
 
 ```json
 {
-  "error": {
-    "message": "Les identifiants fournis sont incorrects"
-  }
+  "message": "Les identifiants fournis sont incorrects"
 }
 ```
 
@@ -79,7 +77,8 @@ Ou en cas de requête mal formée (422 Unprocessable Entity) :
 
 ```json
 {
-  "error": {
+  "message": "The email field is required. (and 1 more error)",
+  "errors": {
     "email": ["The email field is required."],
     "password": ["The password field is required."]
   }
@@ -121,9 +120,9 @@ if (response.ok) {
   localStorage.setItem('accessToken', data.accessToken);
   localStorage.setItem('refreshToken', data.refreshToken);
 } else {
-  // data.error est { message } pour une erreur d'identifiants (401), ou un
-  // objet { champ: [messages] } pour une requête mal formée (422)
-  console.error('Erreur de connexion:', data.error?.message ?? data.error);
+  // data.message est toujours une chaîne ; data.errors (par champ) n'est
+  // présent que pour une requête mal formée (422)
+  console.error('Erreur de connexion:', data.message);
 }
 ```
 
@@ -171,9 +170,7 @@ Permet de renouveler l'access token en utilisant le refresh token. Le refresh to
 
 ```json
 {
-  "error": {
-    "message": "Refresh token expired"
-  }
+  "message": "Refresh token expired"
 }
 ```
 
@@ -181,7 +178,8 @@ Ou en cas de requête mal formée (422 Unprocessable Entity) :
 
 ```json
 {
-  "error": {
+  "message": "The token field is required.",
+  "errors": {
     "token": ["The token field is required."]
   }
 }
@@ -221,9 +219,9 @@ if (response.ok) {
   
   console.log('Tokens renouvelés avec succès');
 } else {
-  console.error('Erreur de rafraîchissement:', data.error?.message ?? data.error);
+  console.error('Erreur de rafraîchissement:', data.message);
   // Si le refresh token a expiré, rediriger vers la page de connexion
-  if (data.error?.message === 'Refresh token expired') {
+  if (data.message === 'Refresh token expired') {
     window.location.href = '/login';
   }
 }

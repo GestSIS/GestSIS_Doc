@@ -102,7 +102,7 @@ La valeur du header correspond à l'abréviation du SIS configurée dans le syst
 
 ```json
 {
-  "error": "Sis non sélectionné"
+  "message": "Sis non sélectionné"
 }
 ```
 
@@ -188,7 +188,7 @@ const data = await response.json();
 if (response.ok) {
   console.log('Alarmes récupérées:', data.data);
 } else {
-  console.error('Erreur:', data.error);
+  console.error('Erreur:', data.message);
 }
 ```
 
@@ -227,7 +227,7 @@ async function getAlarmes(sisKey, force = false, old = false) {
     if (response.ok) {
       return data.data;
     } else {
-      throw new Error(data.error || 'Erreur inconnue');
+      throw new Error(data.message || 'Erreur inconnue');
     }
   } catch (error) {
     console.error('Erreur lors de la récupération des alarmes:', error);
