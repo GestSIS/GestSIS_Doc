@@ -87,7 +87,15 @@ Après cette date, si vous ne l'avez pas encore activée, GestSIS vous demande d
 
 ### Application mobile
 
-L'application mobile GestSIS demande aussi votre second moyen à la connexion. La configuration, elle, se fait uniquement dans l'application web : si la double authentification est obligatoire et pas encore configurée, l'application mobile vous invite à le faire sur le web, puis à vous reconnecter.
+L'application mobile GestSIS (Android) demande aussi votre second moyen à la connexion : code de votre application d'authentification, code de secours, ou clé de sécurité / biométrie.
+
+!!!warning Clé de sécurité sur mobile
+La clé doit être disponible **sur le téléphone ou la tablette** : une passkey enregistrée dans le Gestionnaire de mots de passe Google (par exemple créée depuis Chrome sur ce téléphone), ou une clé physique compatible NFC. Une clé créée sur un ordinateur avec Windows Hello ou Touch ID reste sur cet ordinateur et ne fonctionne pas dans l'application mobile.
+
+Si vous utilisez l'application mobile, activez aussi l'application d'authentification : elle fonctionne sur tous les appareils.
+!!!
+
+La configuration, elle, se fait uniquement dans l'application web : si la double authentification est obligatoire et pas encore configurée, l'application mobile vous invite à le faire sur le web, puis à vous reconnecter.
 
 ## Sessions actives
 
