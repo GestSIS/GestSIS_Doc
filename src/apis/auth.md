@@ -5,176 +5,30 @@ icon: ":lock:"
 
 # Authentification
 
-Cette page décrit comment utiliser l'API d'authentification de GestSIS pour créer et gérer les tokens d'accès et de rafraîchissement.
+Cette page explique comment obtenir un access token pour appeler les API GestSIS depuis votre propre application ou script.
 
 ## Vue d'ensemble
 
-L'API d'authentification GestSIS utilise un système de tokens JWT (JSON Web Tokens) pour sécuriser les accès. Deux types de tokens sont utilisés :
+Chaque requête vers les API GestSIS est authentifiée par un **access token** : un JWT signé (RS256) valable 60 minutes, envoyé dans le header `Authorization`. Il existe deux façons d'en obtenir un :
 
-- **Access Token** : Token de courte durée (8 heures) utilisé pour authentifier les requêtes API
-- **Refresh Token** : Token de longue durée (30 jours) utilisé pour renouveler l'access token
+| | [Jeton d'API](#1-jeton-dapi) | [Login utilisateur](#2-login-utilisateur) |
+| --- | --- | --- |
+| Pour | Script, tâche planifiée, service tiers | Application dans laquelle un utilisateur se connecte avec son compte GestSIS |
+| Identifiants | Un jeton créé une fois dans GestSIS | Email, mot de passe, et double authentification si le compte l'a activée |
+| Droits | Limités aux permissions et SIS choisis à la création | Ceux de l'utilisateur |
+| Renouvellement | Rappeler `token-auth` | Refresh token |
+
+**Utilisez un jeton d'API dès que l'intégration tourne sans utilisateur devant l'écran.** Ne stockez jamais le mot de passe d'un compte dans un script.
 
 ## Base URL
 
-L'API d'authentification est accessible via :
-
 ```
-http://auth.gestsis.ch/api/v1
+https://auth.gestsis.ch/api/v1
 ```
 
-En production, l'URL sera différente selon votre configuration.
+## Format des réponses
 
----
-
-## 1. Connexion (Login)
-
-### Endpoint
-
-```
-POST /api/v1/login
-```
-
-### Description
-
-Permet à un utilisateur de se connecter et d'obtenir un access token et un refresh token.
-
-### Corps de la requête
-
-```json
-{
-  "email": "utilisateur@example.com",
-  "password": "motdepasse"
-}
-```
-
-### Réponse en cas de succès (200 OK)
-
-```json
-{
-  "message": "Successful login",
-  "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGc...",
-  "refreshToken": "a1b2c3d4e5f6g7h8",
-  "user": {
-    "id": 1,
-    "name": "Jean Dupont",
-    "email": "utilisateur@example.com",
-    "email_verified_at": "2025-01-01T10:00:00.000000Z",
-    "created_at": "2025-01-01T10:00:00.000000Z",
-    "updated_at": "2025-01-01T10:00:00.000000Z"
-  }
-}
-```
-
-### Réponse en cas d'erreur (401 Unauthorized)
-
-```json
-{
-  "message": "Les identifiants fournis sont incorrects"
-}
-```
-
-Ou en cas de requête mal formée (422 Unprocessable Entity) :
-
-```json
-{
-  "message": "The email field is required. (and 1 more error)",
-  "errors": {
-    "email": ["The email field is required."],
-    "password": ["The password field is required."]
-  }
-}
-```
-
-### Exemple avec cURL
-
-```bash
-curl -X POST http://auth.gestsis.ch/api/v1/login \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "utilisateur@example.com",
-    "password": "motdepasse"
-  }'
-```
-
-### Exemple avec JavaScript (fetch)
-
-```javascript
-const response = await fetch('http://auth.gestsis.ch/api/v1/login', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    email: 'utilisateur@example.com',
-    password: 'motdepasse'
-  })
-});
-
-const data = await response.json();
-
-if (response.ok) {
-  console.log('Access Token:', data.accessToken);
-  console.log('Refresh Token:', data.refreshToken);
-  
-  // Stocker les tokens (par exemple dans localStorage)
-  localStorage.setItem('accessToken', data.accessToken);
-  localStorage.setItem('refreshToken', data.refreshToken);
-} else {
-  // data.message est toujours une chaîne ; data.errors (par champ) n'est
-  // présent que pour une requête mal formée (422)
-  console.error('Erreur de connexion:', data.message);
-}
-```
-
----
-
-## 2. Rafraîchir le Token (Refresh Token)
-
-### Endpoint
-
-```
-POST /api/v1/refresh-token
-```
-
-### Description
-
-Permet de renouveler l'access token en utilisant le refresh token. Le refresh token est à usage unique : après utilisation, il est détruit et un nouveau refresh token est généré.
-
-### Corps de la requête
-
-```json
-{
-  "token": "a1b2c3d4e5f6g7h8"
-}
-```
-
-### Réponse en cas de succès (200 OK)
-
-```json
-{
-  "message": "Successful login",
-  "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGc...",
-  "refreshToken": "x9y8z7w6v5u4t3s2",
-  "user": {
-    "id": 1,
-    "name": "Jean Dupont",
-    "email": "utilisateur@example.com",
-    "email_verified_at": "2025-01-01T10:00:00.000000Z",
-    "created_at": "2025-01-01T10:00:00.000000Z",
-    "updated_at": "2025-01-01T10:00:00.000000Z"
-  }
-}
-```
-
-### Réponse en cas d'erreur (401 Unauthorized)
-
-```json
-{
-  "message": "Refresh token expired"
-}
-```
-
-Ou en cas de requête mal formée (422 Unprocessable Entity) :
+Les données utiles sont dans `data`. Les erreurs ont toujours un champ `message` (chaîne), et un champ `errors` (par champ) pour une requête mal formée (422) :
 
 ```json
 {
@@ -185,57 +39,259 @@ Ou en cas de requête mal formée (422 Unprocessable Entity) :
 }
 ```
 
-### Exemple avec cURL
+Un statut 429 indique trop de tentatives (par adresse IP, ou échecs répétés sur un compte) : attendez avant de réessayer.
 
-```bash
-curl -X POST http://auth.gestsis.ch/api/v1/refresh-token \
-  -H "Content-Type: application/json" \
-  -d '{
-    "token": "a1b2c3d4e5f6g7h8"
-  }'
+Certaines réponses répètent aussi des champs de `data` à la racine pour la compatibilité avec d'anciens clients : ne vous y fiez pas, lisez toujours `data`.
+
+---
+
+## 1. Jeton d'API
+
+### Créer un jeton
+
+Le jeton se crée dans GestSIS, page **Mon compte** :
+
+- choisissez un nom, une durée de validité (1 à 365 jours), les permissions et les SIS auxquels il donne accès ;
+- votre compte doit avoir la **double authentification activée**, et GestSIS vous redemande votre mot de passe (et votre code) à la création ;
+- le jeton n'est **affiché qu'une seule fois** : conservez-le dans un gestionnaire de secrets.
+
+Un jeton ne peut donner que des permissions que vous avez vous-même dans les SIS choisis.
+
+### Obtenir un access token
+
+```
+POST /api/v1/token-auth
 ```
 
-### Exemple avec JavaScript (fetch)
+```json
+{ "token": "votre-jeton-d-api" }
+```
+
+#### Réponse (200 OK)
+
+```json
+{
+  "data": {
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "user": {
+      "id": 1,
+      "name": "Jean Dupont",
+      "email": "utilisateur@example.com"
+    }
+  }
+}
+```
+
+L'access token est valable 60 minutes. Il n'y a pas de refresh token : rappelez `token-auth` quand il expire (ou quand l'API répond 401).
+
+#### Erreurs
+
+| Statut | Cas |
+| ------ | --- |
+| 401 | Jeton invalide, expiré ou révoqué. Un jeton est révoqué automatiquement si le mot de passe du compte est réinitialisé : créez-en un nouveau |
+| 403 | L'utilisateur a perdu une partie des permissions du jeton : révoquez-le et créez-en un nouveau |
+
+#### Exemple avec cURL
+
+```bash
+curl -X POST https://auth.gestsis.ch/api/v1/token-auth \
+  -H "Content-Type: application/json" \
+  -d '{"token": "votre-jeton-d-api"}'
+```
+
+### Ce qu'un jeton d'API peut faire
+
+L'access token obtenu appelle les API GestSIS avec les permissions du jeton, dans les SIS du jeton, même si le compte est administrateur. Il ne peut modifier aucun réglage d'authentification du compte (mot de passe, double authentification, sessions, jetons).
+
+---
+
+## 2. Login utilisateur
+
+Ce parcours sert aux applications où l'utilisateur saisit lui-même ses identifiants. Il produit un access token (60 minutes) et un **refresh token**, lié à une session, qui permet d'en obtenir un nouveau sans redemander le mot de passe.
+
+### Étape 1 : email et mot de passe
+
+```
+POST /api/v1/login
+```
+
+```json
+{
+  "email": "utilisateur@example.com",
+  "password": "motdepasse",
+  "rememberMe": true
+}
+```
+
+`rememberMe` est facultatif (vrai par défaut). À `false`, la session expire après 1 jour sans renouvellement au lieu de 30.
+
+La réponse (200) prend l'une de ces trois formes : regardez quels champs sont présents dans `data`.
+
+**Connexion complète**, si le compte n'a pas de double authentification :
+
+```json
+{
+  "data": {
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "refreshToken": "eyJzaWQiOiI5YmY...Xk3Q",
+    "user": {
+      "id": 1,
+      "name": "Jean Dupont",
+      "email": "utilisateur@example.com"
+    },
+    "twoFactorNudge": null
+  }
+}
+```
+
+`twoFactorNudge` vaut `null`, ou `{ "enforcedAt": "...", "daysRemaining": 31 }` si la double authentification va devenir obligatoire pour ce compte : vous pouvez inviter l'utilisateur à l'activer dans GestSIS.
+
+**Double authentification requise** : passez à l'[étape 2](#étape-2--double-authentification) avec le `preAuthToken` (valable 5 minutes).
+
+```json
+{
+  "data": {
+    "requiresTwoFactor": true,
+    "preAuthToken": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "availableMethods": ["totp", "webauthn"]
+  }
+}
+```
+
+**Double authentification à configurer** : elle est obligatoire et le compte ne l'a pas encore. Invitez l'utilisateur à se connecter une fois à GestSIS pour la configurer, puis à se reconnecter dans votre application.
+
+```json
+{
+  "data": {
+    "requiresTwoFactorSetup": true,
+    "setupToken": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+  }
+}
+```
+
+#### Erreurs
+
+| Statut | Cas |
+| ------ | --- |
+| 401 | `"Les identifiants fournis sont incorrects"` (aussi pour un compte désactivé) |
+| 403 | L'adresse email du compte n'est pas encore confirmée (`requiresEmailConfirmation: true`) : l'utilisateur doit finir son inscription dans GestSIS |
+| 422 | Requête mal formée |
+
+### Étape 2 : double authentification
+
+Envoyez le `preAuthToken` dans le header `Authorization`, avec un code de l'application d'authentification de l'utilisateur :
+
+```
+POST /api/v1/2fa/verify
+Authorization: Bearer {preAuthToken}
+```
+
+```json
+{ "code": "123456" }
+```
+
+`code` accepte aussi un **code de secours** de l'utilisateur. En cas de succès, la réponse est une connexion complète, comme ci-dessus.
+
+| Statut | Cas |
+| ------ | --- |
+| 401 | `preAuthToken` expiré (plus de 5 minutes) : recommencez l'étape 1 |
+| 422 | `"Code invalide"` (un même code ne sert qu'une fois) |
+| 429 | Trop de codes erronés sur ce compte |
+
+Si `availableMethods` ne contient que `webauthn` (clé de sécurité ou biométrie), la vérification se fait dans un navigateur : `POST /api/v1/2fa/webauthn/challenge` renvoie les options pour `navigator.credentials.get()` (par exemple avec `startAuthentication()` de `@simplewebauthn/browser`), puis `POST /api/v1/2fa/webauthn/verify` avec `{ "response": <résultat du navigateur> }`, toujours avec le `preAuthToken`.
+
+### Renouveler l'access token
+
+```
+POST /api/v1/refresh-token
+```
+
+```json
+{ "token": "eyJzaWQiOiI5YmY...Xk3Q" }
+```
+
+La réponse est une connexion complète, avec un **nouveau** refresh token. Points importants :
+
+- **Le refresh token ne sert qu'une fois.** Remplacez-le à chaque renouvellement. Présenter un refresh token déjà utilisé (plus de 10 secondes après) est traité comme un vol : la session est révoquée et l'utilisateur doit se reconnecter.
+- **Un seul renouvellement à la fois.** Si plusieurs requêtes reçoivent un 401 en même temps, lancez un seul refresh et faites attendre les autres.
+- **C'est une chaîne opaque** : stockez-la telle quelle, sans en supposer le format ni la longueur.
+
+Un **401** signifie que la session est terminée : renvoyez l'utilisateur vers l'étape 1. Le `message` en donne la raison (session expirée, révoquée, double authentification devenue obligatoire…), mais ne basez pas votre logique sur son texte.
+
+Une session expire après 30 jours sans renouvellement (1 jour sans `rememberMe`), et au plus tard 30 jours après le login, même si elle est renouvelée régulièrement.
+
+### Se déconnecter
+
+```
+POST /api/v1/logout
+```
+
+```json
+{ "token": "eyJzaWQiOiI5YmY...Xk3Q" }
+```
+
+Termine la session côté serveur : le refresh token ne peut plus être renouvelé. Répond toujours `204 No Content`. Supprimez aussi l'access token de votre côté : il reste valable jusqu'à son expiration.
+
+### Exemple : fetch avec renouvellement automatique
 
 ```javascript
-const refreshToken = localStorage.getItem('refreshToken');
+const AUTH_URL = 'https://auth.gestsis.ch/api/v1';
+let refreshing = null;
 
-const response = await fetch('http://auth.gestsis.ch/api/v1/refresh-token', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    token: refreshToken
-  })
-});
+async function refreshTokens() {
+  const response = await fetch(`${AUTH_URL}/refresh-token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token: localStorage.getItem('refreshToken') }),
+  });
 
-const data = await response.json();
+  if (!response.ok) {
+    // Session terminée : nouvelle connexion nécessaire
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    throw new Error('Session expirée');
+  }
 
-if (response.ok) {
-  // Mettre à jour les tokens stockés
+  const { data } = await response.json();
   localStorage.setItem('accessToken', data.accessToken);
   localStorage.setItem('refreshToken', data.refreshToken);
-  
-  console.log('Tokens renouvelés avec succès');
-} else {
-  console.error('Erreur de rafraîchissement:', data.message);
-  // Si le refresh token a expiré, rediriger vers la page de connexion
-  if (data.message === 'Refresh token expired') {
-    window.location.href = '/login';
+}
+
+async function fetchWithAuth(url, options = {}) {
+  const send = () => fetch(url, {
+    ...options,
+    headers: { ...options.headers, Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+  });
+
+  const response = await send();
+  if (response.status !== 401) {
+    return response;
   }
+
+  // Un seul refresh partagé par toutes les requêtes en attente
+  refreshing ??= refreshTokens().finally(() => { refreshing = null; });
+  await refreshing;
+
+  return send();
 }
 ```
 
 ---
 
-## Utilisation des Tokens
+## Utiliser l'access token
 
-### Structure de l'Access Token
+Envoyez l'access token dans le header `Authorization` de chaque requête vers les API GestSIS, avec le header `Sis-Key` du SIS concerné (voir [API GestSIS](api.md#header-sis-key)) :
 
-L'access token est un JWT (JSON Web Token) signé avec RSA-256 qui contient les informations suivantes :
+```
+Authorization: Bearer {accessToken}
+Sis-Key: hs
+```
 
-#### Structure complète
+Une réponse 401 signifie en général que l'access token a expiré : renouvelez-le (`token-auth` ou `refresh-token`), puis réessayez la requête.
+
+### Contenu de l'access token
+
+Le JWT peut être décodé pour connaître l'utilisateur et ses droits, par exemple pour savoir à quels SIS il a accès. Ne vous en servez pas pour décider seul d'un accès : c'est l'API qui fait foi.
 
 ```json
 {
@@ -243,7 +299,7 @@ L'access token est un JWT (JSON Web Token) signé avec RSA-256 qui contient les 
   "aud": "GestSIS_API",
   "iat": 1702290000,
   "nbf": 1702289990,
-  "exp": 1702318800,
+  "exp": 1702293600,
   "data": {
     "id": 1,
     "admin": false,
@@ -251,226 +307,49 @@ L'access token est un JWT (JSON Web Token) signé avec RSA-256 qui contient les 
     "pseudo": "Jean Dupont",
     "email": "jean.dupont@example.com",
     "permissions": {
-      "test": [
-        "intervention.lecture",
-        "intervention.modification",
-        "sapeur.lecture"
-      ],
-      "hs": [
-        "intervention.lecture"
-      ]
+      "test": ["intervention.lecture", "intervention.modification", "sapeur.lecture"],
+      "hs": ["intervention.lecture"]
     },
-    "mobiles": [
-      "test",
-      "hs"
-    ],
-    "sapeurs": {
-      "test": 42,
-      "hs": 108
-    }
+    "mobiles": ["test", "hs"],
+    "sapeurs": { "test": 42, "hs": 108 },
+    "sid": "9bf6c1a2-6d0e-4f3b-9a51-2f6c0b3e8d17",
+    "type": "session"
   }
 }
 ```
 
-#### Description des champs
+- **exp** : expiration (timestamp UNIX, 60 minutes après `iat`)
+- **id**, **pseudo**, **email** : l'utilisateur
+- **admin** : administrateur GestSIS (tous les droits). Toujours `false` pour un token issu d'un jeton d'API
+- **validated** : l'email de l'utilisateur est confirmé
+- **permissions** : pour chaque SIS (par sa clé, la valeur du header `Sis-Key`), la liste des permissions
+- **mobiles** : clés des SIS pour lesquels l'utilisateur reçoit les alertes mobiles
+- **sapeurs** : pour chaque SIS, l'ID du sapeur lié à l'utilisateur
+- **type** : `session` (login utilisateur) ou `api` (jeton d'API)
+- **sid** : identifiant de la session (`null` pour un jeton d'API)
 
-**Headers JWT standard :**
-- **iss** (Issuer) : `GestSIS_Auth` - Émetteur du token
-- **aud** (Audience) : `GestSIS_API` - Destinataire du token
-- **iat** (Issued At) : Timestamp UNIX de la création du token
-- **nbf** (Not Before) : Timestamp UNIX à partir duquel le token est valide (10 secondes avant iat)
-- **exp** (Expiration) : Timestamp UNIX d'expiration (8 heures après iat)
-
-**Données utilisateur (data) :**
-- **id** : Identifiant unique de l'utilisateur dans GestSIS_Auth
-- **admin** : Booléen indiquant si l'utilisateur est administrateur (a tous les droits sur tous les SIS)
-- **validated** : Booléen indiquant si l'email de l'utilisateur a été vérifié
-- **pseudo** : Nom d'affichage de l'utilisateur
-- **email** : Adresse email de l'utilisateur
-
-**Données multi-SIS :**
-- **permissions** : Objet où chaque clé est l'`api_key` d'un SIS, contenant un tableau des permissions pour ce SIS
-  - Exemple : `{"test": ["intervention.lecture", "sapeur.modification"]}`
-  - Si l'utilisateur est admin, toutes les clés SIS contiennent `["admin"]`
-- **mobiles** : Tableau simple contenant les `api_key` des SIS pour lesquels l'utilisateur peut recevoir des alertes mobiles
-  - Exemple : `["test", "hs"]`
-- **sapeurs** : Objet où chaque clé est l'`api_key` d'un SIS, contenant l'ID du sapeur associé à l'utilisateur dans ce SIS
-  - Exemple : `{"test": 42, "hs": 108}`
-
-#### Architecture multi-tenant
-
-**Important** : Les permissions, mobiles et sapeurs sont organisés par SIS. Cela permet à un utilisateur :
-- D'avoir des permissions différentes selon le SIS
-- D'être sapeur dans plusieurs SIS avec des IDs différents
-- De recevoir des alertes mobiles uniquement pour certains SIS
-
-Exemple : Un utilisateur peut être chef d'intervention dans le SDIS Jura mais simple sapeur dans le SDIS Neuchâtel.
-
-### Utiliser l'Access Token dans les requêtes API
-
-Pour authentifier une requête API, incluez l'access token dans le header `Authorization` :
-
-```
-Authorization: Bearer {accessToken}
-```
-
-### Exemple complet d'utilisation
-
-```javascript
-// 1. Connexion
-const loginResponse = await fetch('http://auth.gestsis.ch/api/v1/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email: 'utilisateur@example.com',
-    password: 'motdepasse'
-  })
-});
-
-const loginData = await loginResponse.json();
-localStorage.setItem('accessToken', loginData.accessToken);
-localStorage.setItem('refreshToken', loginData.refreshToken);
-
-// 2. Utiliser l'access token pour une requête protégée
-const apiResponse = await fetch('http://apis.gestsis.ch/api/v1/protected-resource', {
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-  }
-});
-
-// 3. Si le token a expiré (erreur 401), le rafraîchir
-if (apiResponse.status === 401) {
-  const refreshResponse = await fetch('http://auth.gestsis.ch/api/v1/refresh-token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      token: localStorage.getItem('refreshToken')
-    })
-  });
-  
-  const refreshData = await refreshResponse.json();
-  localStorage.setItem('accessToken', refreshData.accessToken);
-  localStorage.setItem('refreshToken', refreshData.refreshToken);
-  
-  // Réessayer la requête avec le nouveau token
-  const retryResponse = await fetch('http://apis.gestsis.ch/api/v1/protected-resource', {
-    headers: {
-      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    }
-  });
-}
-```
+Un même utilisateur peut avoir des permissions différentes et un sapeur différent dans chaque SIS.
 
 ---
 
-## Bonnes Pratiques
+## Bonnes pratiques
 
-### Sécurité
+1. **Jeton d'API pour l'automatisation**, avec le minimum de permissions et de SIS nécessaires, et une durée de validité courte
+2. **Ne jamais exposer un jeton** : ni dans les logs, ni dans le code source, ni dans une URL
+3. **HTTPS uniquement**
+4. **Login utilisateur** : stocker le nouveau refresh token à chaque renouvellement, et appeler `/logout` à la déconnexion
 
-1. **Ne jamais exposer les tokens** : Ne jamais afficher les tokens dans les logs ou les messages d'erreur
-2. **Stockage sécurisé** : Utiliser des mécanismes sécurisés pour stocker les tokens (httpOnly cookies pour le web)
-3. **HTTPS uniquement** : Toujours utiliser HTTPS en production pour éviter l'interception des tokens
-4. **Refresh token à usage unique** : Le système utilise des refresh tokens à usage unique pour prévenir le vol de tokens
+## Durées de vie
 
-### Gestion des Tokens
-
-1. **Renouvellement automatique** : Implémenter un mécanisme de renouvellement automatique avant l'expiration
-2. **Gestion des erreurs** : Rediriger vers la page de connexion si le refresh token a expiré
-3. **Déconnexion** : Supprimer les tokens stockés lors de la déconnexion
-
-```javascript
-// Fonction utilitaire pour gérer le renouvellement automatique
-async function fetchWithAuth(url, options = {}) {
-  const token = localStorage.getItem('accessToken');
-  
-  const response = await fetch(url, {
-    ...options,
-    headers: {
-      ...options.headers,
-      'Authorization': `Bearer ${token}`
-    }
-  });
-  
-  // Si le token a expiré, le rafraîchir et réessayer
-  if (response.status === 401) {
-    const refreshToken = localStorage.getItem('refreshToken');
-    const refreshResponse = await fetch('http://auth.gestsis.ch/api/v1/refresh-token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token: refreshToken })
-    });
-    
-    if (refreshResponse.ok) {
-      const data = await refreshResponse.json();
-      localStorage.setItem('accessToken', data.accessToken);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      
-      // Réessayer la requête originale
-      return fetch(url, {
-        ...options,
-        headers: {
-          ...options.headers,
-          'Authorization': `Bearer ${data.accessToken}`
-        }
-      });
-    } else {
-      // Refresh token expiré, rediriger vers login
-      window.location.href = '/login';
-      throw new Error('Session expirée');
-    }
-  }
-  
-  return response;
-}
-```
-
-### Durée de vie des Tokens
-
-- **Access Token** : 8 heures
-- **Refresh Token** : 30 jours
-- **Reset Token** : 1 heure
-- **Confirmation Token** : 30 jours
+| Jeton | Durée |
+| ----- | ----- |
+| Access token | 60 minutes |
+| Jeton d'API | Choisie à la création (1 à 365 jours) |
+| preAuthToken (double authentification) | 5 minutes |
+| Session (refresh token) | 30 jours sans renouvellement (1 jour sans `rememberMe`), 30 jours au plus depuis le login |
 
 ---
 
-## Autres Endpoints d'Authentification
+## Gestion du compte
 
-### Inscription
-
-```
-POST /api/v1/register
-```
-
-Permet de créer un nouveau compte utilisateur.
-
-### Confirmation d'Email
-
-```
-POST /api/v1/confirmer-email
-```
-
-Permet de confirmer l'adresse email d'un nouvel utilisateur.
-
-### Mot de Passe Oublié
-
-```
-POST /api/v1/forgotten-password
-```
-
-Demande un lien de réinitialisation de mot de passe.
-
-### Réinitialiser le Mot de Passe
-
-```
-POST /api/v1/reset-password
-```
-
-Réinitialise le mot de passe avec un token de réinitialisation.
-
-### Changer le Mot de Passe
-
-```
-POST /api/v1/change-password
-```
-
-Permet à un utilisateur authentifié de changer son mot de passe.
+L'inscription, la confirmation de l'email, le mot de passe, la double authentification, les sessions ouvertes et les jetons d'API se gèrent dans l'application GestSIS (page **Mon compte**). Les endpoints correspondants ne font pas partie de l'interface d'intégration et peuvent évoluer sans préavis.

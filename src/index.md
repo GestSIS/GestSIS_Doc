@@ -13,18 +13,21 @@ Bienvenue dans la documentation officielle de GestSIS. Celle-ci est encore en co
 C'est par <a href="https://app.gestsis.ch/#/register" target="blank">ICI</a> !
 
 1. Compléter le formulaire en utilisant l'adresse email que vous avez communiquée à votre SIS
-2. Contrôler votre boîte mail et activer votre compte en cliquant sur le lien que vous avez reçu
+2. Saisir le code de confirmation reçu par email pour activer votre compte
 
 Et voilà, c'est tout !
 !!!
 
 [!ref Découvrez vos possibilités](guides/mes-infos)
 
+[!ref Sécuriser votre compte (double authentification)](guides/compte)
+
 ## Modules
 
 Pour commencer, cliquez sur le module qui vous intéresse dans la liste suivante :
 
 - [Mes infos](guides/mes-infos)
+- [Mon compte et connexion](guides/compte)
 - [Effectif](guides/effectif)
 - [Sapeur](guides/sapeur)
 - [Exercices et séances](guides/exercice-seances)

@@ -27,7 +27,7 @@ Documentation utiliser les API d'authentification et de données de GestSIS.
 
 GestSIS utilise deux serveurs API distincts :
 
-1. **GestSIS_Auth** (`https://auth.gestsis.ch/auth/api/v1`) : Gestion de l'authentification et des tokens
+1. **GestSIS_Auth** (`https://auth.gestsis.ch/api/v1`) : Gestion de l'authentification et des tokens
 2. **GestSIS_API** (`https://apis.gestsis.ch/api/v2`) : Accès aux données métier (interventions, sapeurs, exercices, etc.)
 
 L'architecture multi-tenant permet de gérer plusieurs SIS (Services d'Incendie et de Secours) avec une seule instance de l'API. Chaque requête vers GestSIS_API doit spécifier le SIS concerné via le header **`Sis-Key`**.
@@ -41,7 +41,7 @@ L'architecture multi-tenant permet de gérer plusieurs SIS (Services d'Incendie 
 │   Client    │
 └──────┬──────┘
        │
-       │ 1. POST /auth/api/v1/login
+       │ 1. POST /api/v1/login
        ├─────────────────────────────────►┌──────────────────┐
        │ 2. Return accessToken + refresh  │  GestSIS_Auth    │
        │◄─────────────────────────────────┤                  │
@@ -67,11 +67,9 @@ L'architecture multi-tenant permet de gérer plusieurs SIS (Services d'Incendie 
 
 Pour toutes les informations sur l'authentification (connexion, gestion des tokens, etc.), consultez la [documentation d'authentification](auth.md).
 
-L'authentification GestSIS utilise des JSON Web Tokens (JWT) avec :
-- **Access Token** : Durée de vie de 8 heures
-- **Refresh Token** : Durée de vie de 30 jours
+Chaque requête vers GestSIS_API est authentifiée par un access token JWT (valable 60 minutes), obtenu auprès de GestSIS_Auth avec un jeton d'API (pour un script ou un service) ou par le login d'un utilisateur.
 
-**Base URL** : `https://apis.gestsis.ch/auth/api/v1`
+**Base URL** : `https://auth.gestsis.ch/api/v1`
 
 ---
 
@@ -238,14 +236,14 @@ async function getAlarmes(sisKey, force = false, old = false) {
 async function refreshAccessToken() {
   const refreshToken = localStorage.getItem('refreshToken');
   
-  const response = await fetch('https://apis.gestsis.ch/auth/api/v1/refresh-token', {
+  const response = await fetch('https://auth.gestsis.ch/api/v1/refresh-token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ token: refreshToken })
   });
 
   if (response.ok) {
-    const data = await response.json();
+    const { data } = await response.json();
     localStorage.setItem('accessToken', data.accessToken);
     localStorage.setItem('refreshToken', data.refreshToken);
     return true;
