@@ -18,7 +18,8 @@ Par défaut, toutes les lignes sont sélectionnées via leur case à cocher qui 
 Pour ne pas communiquer les changements d'un sapeur, il suffit de le décocher et ses informations ne seront pas transmises.
 
 !!!
-Un sapeur appartenant à un groupe RTA mais sans aucun numéro de téléphone ne peut pas être transmis : il apparaît dans un avertissement en haut de la page et doit d'abord recevoir un numéro (voir le guide [Sapeur](sapeur.md)).
+Un sapeur appartenant à un groupe RTA mais sans aucun numéro de téléphone n'est pas alarmable et ne peut pas être transmis : il apparaît dans un avertissement en haut de la page et doit d'abord recevoir un numéro (voir le guide [Sapeur](sapeur.md)).
+S'il figure encore dans la base RTA, il est affiché en rouge avec la mention `Sans numéro` et sera supprimé de la base RTA lors du transfert.
 !!!
 
 L'intégration se fait via [GestionRTA-Jura](https://gestionrta-jura.ch). Les droits d'effectuer des mutations RTA se configurent dans `Configuration` > `Droits et rôles`.

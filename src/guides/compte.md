@@ -107,7 +107,7 @@ Si vous ne reconnaissez pas un appareil, ou si vous êtes resté connecté sur u
 
 ### Changer son mot de passe
 
-Dans `Paramètres`, onglet `Mot de passe` : saisissez l'ancien et le nouveau mot de passe (12 caractères au minimum). Si l'application d'authentification est activée, son code est aussi demandé.
+Dans `Paramètres`, onglet `Mot de passe` : saisissez l'ancien et le nouveau mot de passe (12 caractères au minimum, dont au moins une lettre ; un mot de passe apparaissant dans une fuite de données connue est refusé). Si l'application d'authentification est activée, son code est aussi demandé.
 
 Après le changement, **tous vos appareils sont déconnectés**, y compris celui que vous utilisez : reconnectez-vous avec le nouveau mot de passe.
 
