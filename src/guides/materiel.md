@@ -10,6 +10,7 @@ Le suivi se fait par article individuel (numéro d'inventaire, taille, historiqu
 
 ## Onglets
 
+- **Tableau de bord** : vue d'ensemble de ce qui demande une action — matériel à récupérer auprès de sapeurs inactifs, matériel périmé, contrôles manquants, dépassés ou en préavis, contrôles ayant atteint leur nombre d'exécutions. Le widget **Articles avec numéro manquant** liste, par type, les articles actifs d'un type numéroté dont le numéro n'est pas encore saisi, avec un bouton pour modifier chaque article ; il n'apparaît que s'il y en a.
 - **Par type** : liste des articles pour un type de matériel donné (vue individuelle ou groupée par emplacement). Un type marqué comme périmable affiche une icône d'alerte dès qu'au moins un de ses articles est périmé. Le bouton d'ajout permet de saisir **plusieurs articles du type en une fois** :
   - tous les articles vont dans **un seul emplacement**, choisi en haut. Pour les répartir, activer **Répartir dans plusieurs emplacements** : une colonne emplacement apparaît sur chaque ligne, pré-remplie avec l'emplacement du haut ;
   - pour un type numéroté, on saisit un numéro par ligne. Avec un **lecteur de codes-barres**, chaque code scanné passe automatiquement à une nouvelle ligne, qui reprend l'emplacement, le compartiment, la taille, la péremption et l'achat de la précédente ;
