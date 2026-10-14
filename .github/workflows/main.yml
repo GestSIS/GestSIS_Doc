@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Doc Retype CI
 
 on:
   push:
