@@ -17,7 +17,7 @@ Le suivi se fait par article individuel (numéro d'inventaire, taille, historiqu
   - pour un type non numéroté, on indique une quantité par ligne ;
   - les véhicules s'ajoutent toujours un par un.
 - **Par emplacement** : arborescence des hangars/véhicules/compartiments où est rangé le matériel non attribué.
-- **Par sapeur** : matériel attribué à chaque sapeur, avec les actions [!badge Attribuer] (depuis le stock existant ou par création directe d'un article ; depuis le stock, un article numéroté peut être ajouté en scannant son numéro avec un **lecteur de codes-barres**) et [!badge Retourner] (un ou plusieurs articles vers un ou plusieurs emplacements).
+- **Par sapeur** : matériel attribué à chaque sapeur, avec les actions [!badge Attribuer] (depuis le stock existant ou par création directe d'un article ; depuis le stock, un article numéroté peut être ajouté en scannant son numéro avec un **lecteur de codes-barres**) et [!badge Retourner] (un ou plusieurs articles vers un ou plusieurs emplacements). Le bouton PDF génère la **liste du matériel** actuellement attribué au sapeur (type, numéro, taille, date de distribution, avec une colonne « Retour le » à remplir à la main) ; il est aussi disponible pour chaque sapeur du widget de matériel à récupérer.
 
 Chaque sapeur peut consulter son propre matériel (lecture seule) depuis `Mes infos`.
 
