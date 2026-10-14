@@ -15,9 +15,9 @@ jobs:
 
       - uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.x
 
-      - uses: retypeapp/action-build@latest
+      - uses: retypeapp/action-build@v4
         with:
           override: '{"url": "https://doc.gestsis.ch"}'
 
