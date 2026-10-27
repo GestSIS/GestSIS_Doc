@@ -39,7 +39,7 @@ Les participations aux cours peuvent être imputées en une seule opération pou
 
 ### Fiches de travail
 
-Les fiches de travail acceptées peuvent être imputées individuellement ou toutes en même temps via **Tout imputer**.
+Les fiches de travail acceptées peuvent être imputées individuellement ou toutes en même temps via **Tout imputer**. Les fiches liées à une intervention ou à un exercice sont imputées avec celui-ci : leurs écritures portent la désignation de l'événement, la nature du travail figurant en **complément** (visible dans le détail de l'intervention ou de l'exercice et sur les décomptes par sapeur).
 
 ### Indemnités et frais annuels
 

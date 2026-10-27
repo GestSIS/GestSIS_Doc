@@ -11,6 +11,7 @@ L'interface principale du module permet la visualisation de l'ensemble des inter
 
 Le principe des 4 yeux est appliqué ainsi, une fois une intervention saisie, une validation est nécessaire afin de pouvoir la facturer dans le module `Comptabilité`.
 Le bouton permettant de valider un événement se trouve en fin de ligne.
+Une intervention validée mais pas encore imputée peut être repassée en saisie avec **Annuler la validation**, en haut de la page de l'intervention, par une personne disposant de la validation des interventions. Ses fiches de travail liées gardent leur statut.
 
 ## Rapport d'intervention
 
@@ -36,6 +37,8 @@ Les présences des sapeurs aux interventions sont saisies au quart d'heure afin 
 La notion de phase a pour objet de différencier les heures d'intervention des heures de rétablissement.
 
 Finalement, lors de l'ajout d'une présence, il est également possible de préciser qu'une présence correspond à du piquet.
+
+Sous les présences, la carte **Travaux liés à l'intervention** regroupe les fiches de travail rattachées à l'intervention (rédition du matériel, administratif…). Elles doivent toutes avoir été examinées avant de valider l'intervention, et sont imputées avec elle, voir le guide [Fiche de travail](fiche-travail.md).
 
 ## Configuration
 

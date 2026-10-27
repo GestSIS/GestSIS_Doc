@@ -13,6 +13,8 @@ Chaque sapeur pourra ensuite ajouter une excuse si le sous-module `Excuse` a ét
 
 Si des heures additionnelles ont été configurées (voir le guide [Comptabilité](comptabilite.md), section `Heures additionnelles pour exercice`), des colonnes supplémentaires apparaissent dans la saisie des présences pour les renseigner par sapeur.
 
+Sous les présences, la carte **Travaux liés à l'exercice** regroupe les fiches de travail rattachées à l'exercice (préparation, rédition du matériel…). Elles doivent toutes avoir été examinées avant de valider l'exercice, et sont imputées avec lui, voir le guide [Fiche de travail](fiche-travail.md).
+
 ## Validation
 
 Le principe des 4 yeux est appliqué ainsi une fois un événement est saisi, une validation est nécessaire afin de pouvoir le facturer dans le module `Comptabilité`.
