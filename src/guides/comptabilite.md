@@ -135,10 +135,6 @@ Deux réglages **pro-rata** indépendants affinent ce calcul :
 
 Pour chaque type de cours, une ou plusieurs lignes peuvent être configurées (voir `Types d'écriture` ci-dessus) : par exemple une ligne `Indemnité` par jour de cours et une ligne `Solde` forfaitaire. Chaque ligne a son propre tarif, son unité (jour, forfait, pièce) et son compte comptable.
 
-### Heures additionnelles pour exercice
-
-Un barème séparé de celui des exercices/séances eux-mêmes, pour des heures supplémentaires ponctuelles (ex. rangement du matériel, entretien). Chaque type a une désignation, un montant, une unité, un type (Solde ou Indemnité) et un compte comptable.
-
 ### Indemnités et frais annuels
 
 La configuration définit des **types** de frais ou d'indemnité (ex: indemnité de fonction, frais forfaitaires), chacun associé à un compte comptable et une catégorie d'écriture.

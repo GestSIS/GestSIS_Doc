@@ -11,9 +11,7 @@ L'interface principale du module permet la visualisation de l'ensemble des exerc
 Lors de la saisie des présences, vous devez choisir l'une des trois possibilités `Présent`, `Absent` ou `Remplacé`.
 Chaque sapeur pourra ensuite ajouter une excuse si le sous-module `Excuse` a été activée (voir point `Sous-module excuse` plus bas).
 
-Si des heures additionnelles ont été configurées (voir le guide [Comptabilité](comptabilite.md), section `Heures additionnelles pour exercice`), des colonnes supplémentaires apparaissent dans la saisie des présences pour les renseigner par sapeur.
-
-Sous les présences, la carte **Travaux liés à l'exercice** regroupe les fiches de travail rattachées à l'exercice (préparation, rédition du matériel…). Elles doivent toutes avoir été examinées avant de valider l'exercice, et sont imputées avec lui, voir le guide [Fiche de travail](fiche-travail.md).
+Sous les présences, la carte **Travaux liés à l'exercice** regroupe les fiches de travail rattachées à l'exercice (préparation, rédition du matériel…) : c'est là que se saisit le travail effectué en plus de l'exercice. Elles doivent toutes avoir été examinées avant de valider l'exercice, et sont imputées avec lui, voir le guide [Fiche de travail](fiche-travail.md).
 
 ## Validation
 
