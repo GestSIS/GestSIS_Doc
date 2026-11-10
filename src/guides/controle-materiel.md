@@ -20,9 +20,11 @@ Dans la liste des articles d'un type de matériel (vue par type ou par emplaceme
 Deux façons de saisir l'exécution d'un contrôle :
 
 - Depuis un article (bouton [!badge Contrôler] dans la liste des articles) : l'article est déjà connu, il reste à choisir le contrôle parmi ceux applicables à son type.
-- Depuis la fiche d'un contrôle (bouton [!badge Nouveau contrôle]) : le contrôle est déjà connu, il reste à choisir le ou les articles concernés parmi ceux éligibles, une ligne par article. Avec un **lecteur de codes-barres**, il suffit de scanner le numéro dans le champ article : l'article correspondant est sélectionné et une nouvelle ligne s'ouvre, prête pour le scan suivant.
+- Depuis la fiche d'un contrôle (bouton [!badge Nouveau contrôle]) : le contrôle est déjà connu, il reste à choisir le ou les articles concernés parmi ceux éligibles, une ligne par article. Avec un **lecteur de codes-barres**, il suffit de scanner le numéro dans le champ article : l'article correspondant est sélectionné et une nouvelle ligne s'ouvre, prête pour le scan suivant. Chaque article a sa propre remarque.
 
-Pour chaque tâche du contrôle, on saisit un résultat **OK / KO** (tâche booléenne) ou une **valeur mesurée** (tâche numérique, avec la plage admissible affichée à titre indicatif). Une remarque est recommandée si le résultat est KO ou hors plage, mais n'empêche pas l'enregistrement : un contrôle dont au moins une tâche échoue est simplement marqué comme **invalide**.
+Pour chaque tâche du contrôle, on saisit un résultat **OK / KO** (tâche booléenne), une **valeur mesurée** (tâche numérique, avec la plage admissible affichée à titre indicatif, à laisser vide si elle est optionnelle et sans objet, comme la pression d'une seconde bouteille) ou un **article** (tâche de type composant). Une remarque est recommandée si le résultat est KO ou hors plage, mais n'empêche pas l'enregistrement : un contrôle dont au moins une tâche échoue est simplement marqué comme **invalide**.
+
+Une tâche de type composant référence un autre article utilisé pendant le contrôle, par exemple la pulmocommande et le masque lors du contrôle d'un cacolet. On scanne son numéro dans le champ du composant, ou on le choisit dans la liste. En saisie sur plusieurs articles, le curseur passe seul d'un composant au suivant, puis revient au champ de scan de l'article à contrôler ; la touche Entrée sur un champ vide laisse un composant optionnel de côté. Le composant ne compte pas dans le résultat du contrôle, et référencer un article ne vaut pas contrôle de cet article : ses échéances et ses propres contrôles ne changent pas. La fiche de l'article liste les contrôles où il a été utilisé comme composant.
 
 !!! Contrôle non périodique
 Un contrôle de récurrence "Non périodique" n'a pas d'échéance calculée : il se déclenche manuellement, sans notion de retard ou de préavis.
@@ -37,7 +39,7 @@ Le contrôle **Lavage** (non périodique, 50 exécutions maximum, préavis 40 pa
 Un contrôle se configure dans `Configuration`, sous le module `Matériel`, avec :
 
 - un **nom** et une **description** ;
-- des **tâches** (mode monotâche si une seule, liste de tâches en multitâche, ou aucune tâche — seule la date d'exécution est alors enregistrée à chaque passage), chacune de type booléen ou numérique (avec unité et plage admissible) ;
+- des **tâches** (mode monotâche si une seule, liste de tâches en multitâche, ou aucune tâche — seule la date d'exécution est alors enregistrée à chaque passage), chacune de type booléen, numérique (avec unité et plage admissible, obligatoire ou optionnelle) ou composant (article à scanner, obligatoire ou optionnel, avec les types de matériel numérotés acceptés) ;
 - un ou plusieurs **types de matériel concernés** (un même type ne peut être sélectionné qu'une fois pour un contrôle donné). Seuls les types **numérotés** peuvent être contrôlés : sans numéro, rien ne permet de distinguer les articles d'un même type. Un type contrôlé ne peut plus perdre sa numérotation ;
 - une **récurrence** : Périodique (fréquence en mois, avec un préavis optionnel en mois avant l'échéance), ou Non périodique (déclenché manuellement, sans date calculée — avec en option un nombre d'exécutions maximum et son préavis) ;
 - si le contrôle est réalisé par un **prestataire externe**, et le nom du **responsable** (interne ou externe).

@@ -10,8 +10,8 @@ public, sans qu'un responsable du SIS ressaisisse ces données.
 ## Générer le lien d'inscription
 
 Depuis la page `Sapeurs`, cliquez sur le bouton [!button size="s" text="Lien d'inscription recrues"].
-Une fenêtre s'ouvre pour choisir une durée de validité (maximum 24h), puis affiche un lien et un QR
-code à partager.
+Une fenêtre s'ouvre pour choisir la date et l'heure de fin de validité (par défaut dans 24h, au
+maximum dans 7 jours), puis affiche un lien et un QR code à partager.
 
 !!!
 Projetez le QR code lors d'une séance d'information : les candidats le scannent avec leur téléphone
@@ -25,6 +25,9 @@ Le formulaire se déroule en 2 étapes :
 1. Identité et contact : civilité, nom, prénom, date de naissance, adresse, email.
 2. Informations complémentaires : n° AVS, profession, employeur, lieu de travail, IBAN, téléphones et
    permis de conduire.
+
+Le n° AVS et l'IBAN sont facultatifs. S'ils ne sont pas saisis, la recrue est invitée à les compléter,
+mais elle peut indiquer qu'elle n'a pas ces informations et envoyer son inscription malgré tout.
 
 Une confirmation est demandée avant l'envoi définitif des données.
 
@@ -41,6 +44,6 @@ recrue, le responsable du SIS peut :
 
 - Un seul lien est actif à la fois par SIS. Générer un nouveau lien invalide immédiatement le
   précédent.
-- Le lien expire automatiquement à la fin de la durée choisie (24h maximum).
+- Le lien expire automatiquement à la date de fin de validité choisie (7 jours maximum).
 - Une inscription est refusée si le numéro AVS saisi correspond à une personne déjà enregistrée
   (sapeur, civil ou autre recrue), afin d'éviter les doublons.
