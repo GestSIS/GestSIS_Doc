@@ -59,6 +59,7 @@ Voici la liste de toutes les permissions disponibles :
 - **Cours config** -> Inutilisé pour le moment
 - **Matériel lecture** -> Visualisation du matériel de chaque sapeur et en stock
 - **Matériel modification** -> Saisie et suivi du matériel
+- **Matériel contrôle** -> Exécution des contrôles du matériel
 - **Matériel config** -> Configuration pour le module matériel
 - **Organisation modification** -> Permet la configuration des différents groupes et donne accès à l'interface RTA
 - **Absences lecture** -> Visualisation de la liste des absences

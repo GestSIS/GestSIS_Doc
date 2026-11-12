@@ -46,8 +46,8 @@ Un contrôle se configure dans `Configuration`, sous le module `Matériel`, avec
 
 ## Permissions
 
-Ce module réutilise les permissions du module `Matériel`, il n'existe pas de permission dédiée :
+Ce module utilise les permissions du module `Matériel`, ainsi qu'une permission dédiée à l'exécution des contrôles :
 
-- Lecture : Visualisation des contrôles et de leur statut
-- Modification : Saisie des exécutions de contrôle
-- Configuration : Création et modification des contrôles
+- Matériel lecture : Visualisation des contrôles et de leur statut
+- Matériel contrôle : Saisie, modification et suppression des exécutions de contrôle
+- Matériel config : Création et modification des contrôles
