@@ -25,7 +25,7 @@ L'action **Supprimer** d'un article ouvre une confirmation : on indique la **dat
 
 Pour un lot de matériel non numéroté regroupé (même emplacement et même compartiment), **Supprimer** demande la **quantité** à supprimer. Le système choisit lui-même les pièces concernées : celles dont la péremption est la plus proche d'abord, puis les plus anciennes.
 
-Pour retrouver un article supprimé, cocher **Afficher le matériel supprimé** dans l'onglet **Par emplacement**, puis utiliser **Restaurer** et choisir l'emplacement actif dans lequel le replacer.
+Pour retrouver un article supprimé, cocher **Afficher le matériel supprimé** dans l'onglet **Par emplacement**, puis utiliser **Restaurer** et choisir l'emplacement actif dans lequel le replacer. Un véhicule restauré n'a pas d'emplacement à choisir : son emplacement est simplement réactivé.
 
 ### Historique d'un article
 
@@ -46,11 +46,11 @@ Les différents types de matériel sont à saisir et paramétrer dans `Configura
 
 Les couleurs ont également une case **Actif** : une couleur inactive n'est plus proposée à la création, mais reste affichée là où elle est déjà utilisée.
 
+Les emplacements, hangars, couleurs, types de batterie et diamètres de tuyau utilisés par ces types se configurent également dans `Configuration`.
+
 ### Véhicules
 
 Dans la configuration des véhicules, la case **Disponible en intervention** détermine s'il peut être engagé : un véhicule indisponible ou supprimé n'est pas proposé dans les interventions (voir le guide [Intervention](intervention.md)). Supprimer un véhicule désactive son emplacement.
-
-Les emplacements, hangars, couleurs, types de batterie et diamètres de tuyau utilisés par ces types se configurent également dans `Configuration`.
 
 ### Dupliquer des sous-emplacements
 
