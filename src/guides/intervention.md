@@ -44,7 +44,7 @@ Sous les présences, la carte **Travaux liés à l'intervention** regroupe les f
 
 Voici l'ensemble des paramètres disponible dans la configuration
 
-- Véhicules
+- Véhicules : la colonne **Disponible en intervention** indique si le véhicule peut être engagé. Un véhicule non disponible, ou supprimé (bouton **Supprimer**), n'est plus proposé dans les interventions ; les interventions passées le conservent.
 - Matériel consommable et en prêt
 - Missions
 - Téléphones

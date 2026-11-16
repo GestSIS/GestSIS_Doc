@@ -27,6 +27,8 @@ Les onglets `Fonctions` et `Promotion` retracent l'historique des fonctions et g
 
 L'onglet `Permis` liste les permis de conduire du sapeur.
 
+L'onglet `Materiel` affiche le matériel actuellement attribué ; la case **Afficher les articles rendus** y ajoute l'historique des attributions passées.
+
 Les autres onglets de la fiche sapeur (`Materiel`, `Organisation`, `Banque`, `Exercice`, `Intervention`) reprennent simplement, pour ce sapeur, les données déjà décrites dans les guides [Matériel](materiel.md), [Organisation](organisation.md), [Comptabilité](comptabilite.md), [Exercices & séances](exercice-seances.md) et [Intervention](intervention.md).
 
 ## Cours
