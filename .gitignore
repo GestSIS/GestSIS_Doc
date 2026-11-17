@@ -1,8 +1,4 @@
 node_modules
-.yarn/*
-!.yarn/releases
-!.yarn/plugins
-.pnp.*
 .env
 .env.*
 !.env.example

@@ -26,9 +26,9 @@ Cette documentation fournit des guides complets pour l'utilisation de GestSIS, c
 
 ### Prérequis
 
-- [Node.js](https://nodejs.org/) (v18+)
+- [Node.js](https://nodejs.org/) (v26)
 - [.NET SDK](https://dotnet.microsoft.com/download) (v8.0)
-- [Yarn](https://yarnpkg.com/) (v4.12+)
+- [pnpm](https://pnpm.io/) (v12, `npm install -g pnpm` ; la version exacte est prise dans `packageManager`)
 
 ### Installation
 
@@ -38,10 +38,10 @@ git clone https://github.com/your-org/gestsis-doc.git
 cd gestsis-doc
 
 # Installer les dépendances
-yarn install
+pnpm install
 
 # Lancer le serveur de développement
-yarn docs:dev
+pnpm docs:dev
 ```
 
 La documentation sera accessible sur **http://localhost:8081**
@@ -68,7 +68,7 @@ src/
 
 ```bash
 # Démarrer le serveur local
-yarn docs:dev
+pnpm docs:dev
 
 # Build de production (via GitHub Actions)
 # Déploiement automatique sur doc.gestsis.ch

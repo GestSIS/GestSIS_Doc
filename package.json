@@ -10,5 +10,12 @@
   "scripts": {
     "docs:dev": "retype start"
   },
-  "packageManager": "yarn@4.18.0"
+  "packageManager": "pnpm@12.21.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^26.0.0",
+      "onFail": "error"
+    }
+  }
 }

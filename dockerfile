@@ -1,6 +1,6 @@
 FROM node:26
 
 WORKDIR /app
-RUN yarn global add retypeapp
+RUN npm install --global pnpm@12
 
 CMD [ "sh" ]
