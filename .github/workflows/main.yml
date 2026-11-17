@@ -3,8 +3,17 @@ name: Doc Retype CI
 on:
   push:
     branches: [main]
-
+  pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un seul run par branche : les PR annulent le run précédent,
+# les déploiements sur main sont mis en file (jamais deux rsync --delete en parallèle)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -22,13 +31,15 @@ jobs:
           override: '{"url": "https://doc.gestsis.ch"}'
 
       - name: Configure SSH
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
 
-          # Ajouter le host key du serveur aux hosts connus
-          ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+          # Clés du serveur vérifiées et stockées en secret (pas de ssh-keyscan : il ferait
+          # confiance à n'importe quelle clé reçue au moment du déploiement)
+          echo "$KNOWN_HOSTS" >> ~/.ssh/known_hosts
 
           cat >>~/.ssh/config <<END
           Host staging
@@ -42,7 +53,9 @@ jobs:
           SSH_USER: ${{ secrets.STAGING_SSH_USER }}
           SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
           SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          KNOWN_HOSTS: ${{ secrets.STAGING_KNOWN_HOSTS }}
 
       - name: Deploy build
-        run: rsync -rtz --delete --timeout 30 -e ssh $RETYPE_OUTPUT_PATH/ staging:doc.gestsis.ch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: rsync -rtz --delete --timeout 30 -e ssh "$RETYPE_OUTPUT_PATH/" staging:doc.gestsis.ch
         continue-on-error: false
