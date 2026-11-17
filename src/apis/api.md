@@ -16,7 +16,7 @@ Documentation utiliser les API d'authentification et de données de GestSIS.
 - [Authentification](#authentification)
 - [API de données (GestSIS_API)](#api-de-données-gestsis_api)
   - [Header Sis-Key](#header-sis-key)
-  - [Exemple : Alarmes](#exemple-alarmes)
+  - [Exemple : Alarmes](#exemple--alarmes)
   - [Autres endpoints](#autres-endpoints-disponibles)
 - [Utilisation des tokens](#utilisation-des-tokens)
 - [Bonnes pratiques](#bonnes-pratiques)

@@ -2,9 +2,8 @@
 
 Documentation officielle de **GestSIS** - Plateforme de gestion des Services d'Incendie et de Secours
 
-[![Deploy](https://github.com/GestSIS/GestSIS_Doc/workflows/Node.js%20CI/badge.svg)](https://github.com/GestSIS/GestSIS_Doc/actions)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=.net)](https://dotnet.microsoft.com/)
-[![Retype](https://img.shields.io/badge/Retype-3.11-00D4AA)](https://retype.com/)
+[![Deploy](https://github.com/GestSIS/GestSIS_Doc/actions/workflows/main.yml/badge.svg)](https://github.com/GestSIS/GestSIS_Doc/actions/workflows/main.yml)
+[![Retype](https://img.shields.io/badge/Retype-4.6-00D4AA)](https://retype.com/)
 
 > 🌐 **[Accéder à la documentation](https://doc.gestsis.ch)** | **[GestSIS App](https://gestsis.ch)**
 
@@ -27,15 +26,14 @@ Cette documentation fournit des guides complets pour l'utilisation de GestSIS, c
 ### Prérequis
 
 - [Node.js](https://nodejs.org/) (v26)
-- [.NET SDK](https://dotnet.microsoft.com/download) (v8.0)
 - [pnpm](https://pnpm.io/) (v12, `npm install -g pnpm` ; la version exacte est prise dans `packageManager`)
 
 ### Installation
 
 ```bash
 # Cloner le repository
-git clone https://github.com/your-org/gestsis-doc.git
-cd gestsis-doc
+git clone https://github.com/GestSIS/GestSIS_Doc.git
+cd GestSIS_Doc
 
 # Installer les dépendances
 pnpm install
