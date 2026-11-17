@@ -1,1 +1,5 @@
 trustPolicy: no-downgrade
+
+update:
+  ignoreDeps:
+    - node
