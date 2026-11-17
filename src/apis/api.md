@@ -289,6 +289,7 @@ POST   /api/v2/interventions/{id}/valider  # Valider une intervention
 GET    /api/v2/exercices              # Liste des exercices
 GET    /api/v2/exercices/{id}         # Détails d'un exercice
 POST   /api/v2/exercices              # Créer un exercice
+POST   /api/v2/exercices/import       # Créer plusieurs exercices d'un coup (tout ou rien)
 PUT    /api/v2/exercices/{id}         # Modifier un exercice
 DELETE /api/v2/exercices/{id}         # Supprimer un exercice
 ```
