@@ -28,7 +28,7 @@ Pour vous déconnecter, choisissez `Déconnexion` dans le menu de votre nom. Pen
 
 ## Créer un compte
 
-Sur la page de connexion, cliquez sur `S'enregistrer` et utilisez l'adresse email que vous avez communiquée à votre SIS.
+Un compte est réservé aux personnes enregistrées par leur SIS comme sapeur ou civil actif. Sur la page de connexion, cliquez sur `S'enregistrer` et utilisez l'adresse email inscrite sur votre fiche : votre compte y est relié automatiquement, dans chaque SIS où cette adresse figure.
 
 Un **code de 8 caractères** vous est ensuite envoyé par email : saisissez-le pour activer votre compte. Le code est valable 30 minutes ; s'il a expiré ou si vous ne l'avez pas reçu, cliquez sur [!button size="s" text="Renvoyer le code"].
 

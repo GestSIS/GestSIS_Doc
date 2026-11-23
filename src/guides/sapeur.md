@@ -8,6 +8,8 @@ Ce module permet la gestion de l'ensembles des sapeurs et civiles qui collaboren
 Il existe actuellement trois types de personnes, les [!badge sapeurs], les [!badge civils] et les
 [!badge recrues] (candidats en attente de validation, voir [Recrutement](./recrutement.md)).
 
+Les sapeurs et civils actifs peuvent créer un compte GestSIS avec l'adresse email de leur fiche (voir [Utilisateurs](./utilisateur.md)). Les recrues ne le peuvent pas tant qu'elles ne sont pas validées.
+
 !!! Informations
 La [!badge fonction principale], le [!badge grade actuel] et le statut [!badge actif] sont mis à jour automatiquement afin de reflèter les fonctions, promotions et mutations saisies. Ils ne peuvent ainsi pas être modifié directement.
 !!!

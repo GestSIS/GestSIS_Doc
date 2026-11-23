@@ -9,13 +9,15 @@ Afin de faciliter l'atribution de permissions, GestSIS utilise la notion de rôl
 Des rôles peuvent être créé dans le menu configuration et ensuite être attributés à plusieurs utilisateurs.
 Ainsi si les permissions d'un rôle sont modifiés, les permissions de l'ensemble des utilisateurs seront mises à jour directement.
 
+## Création des comptes
+
+Chaque compte est relié à une fiche sapeur ou civil : seules les personnes actives dans le [module sapeur](sapeur.md) peuvent créer un compte, avec l'adresse email de leur fiche. Si cette adresse est corrigée après coup, le compte existant est relié automatiquement à la fiche.
+
 ## Comptes spéciaux
 
-Les comptes spéciaux sont destinés aux utilisateurs n'étant pas pompiers mais ayant besoin d'avoir accès à certaines informations.
+Les comptes spéciaux sont destinés aux utilisateurs n'étant pas pompiers mais ayant besoin d'avoir accès à certaines informations (caissier, secrétariat…).
 
-Ces personnes n'étant pas enregistrées dans GestSIS, il n'est pas possible pour eux de créer un compte directement.
-
-<!-- TODO: Expliquer comment créer un compte pour personne externe -->
+Pour leur donner accès, enregistrez-les comme [!badge civils] dans le [module sapeur](sapeur.md), avec leur adresse email. Ils peuvent ensuite créer leur compte eux-mêmes avec cette adresse, comme un sapeur, puis vous leur attribuez les rôles nécessaires.
 
 ## Sapeurs sans comptes
 
