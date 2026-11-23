@@ -4,7 +4,7 @@ icon: ":wrench:"
 title: Matériel
 ---
 
-Ce module permet la gestion du matériel attribuable aux sapeurs (pas uniquement les EPI — tout type de matériel personnel peut être configuré) et ne permet pas la gestion de l'inventaire des hangars, véhicules, etc. (voir le module `Intervention` pour le matériel consommable et en prêt).
+Ce module permet la gestion du matériel attribuable aux sapeurs (pas uniquement les EPI — tout type de matériel personnel peut être configuré) et du matériel rangé dans les hangars, véhicules et compartiments, dont l'inventaire se fait avec le module [Inventaire](inventaire.md) (voir le module `Intervention` pour le matériel consommable et en prêt).
 
 Le suivi se fait par article individuel (numéro d'inventaire, taille, historique des contrôles, lavages compris), pas seulement par quantité. Un article est soit **en stock** à un emplacement, soit **attribué** à un sapeur.
 
@@ -17,6 +17,7 @@ Le suivi se fait par article individuel (numéro d'inventaire, taille, historiqu
   - pour un type non numéroté, on indique une quantité par ligne ;
   - les véhicules s'ajoutent toujours un par un.
 - **Par emplacement** : arborescence des hangars/véhicules/compartiments où est rangé le matériel non attribué. La case **Afficher le matériel supprimé** ajoute à la liste les articles supprimés, en grisé avec leur date et leur remarque de suppression. Pour ceux-ci, les actions sont **Info** et **Restaurer**.
+- **Inventaires** : inventaires en cours, écarts à traiter, date du dernier inventaire de chaque emplacement et historique (voir le guide [Inventaire](inventaire.md)).
 - **Par sapeur** : matériel attribué à chaque sapeur, avec les actions [!badge Attribuer] (depuis le stock existant ou par création directe d'un article ; depuis le stock, un article numéroté peut être ajouté en scannant son numéro avec un **lecteur de codes-barres**) et [!badge Retourner] (un ou plusieurs articles vers un ou plusieurs emplacements). La case **Afficher les articles rendus** ajoute à la même liste, en grisé, les articles rendus par le sapeur, avec une colonne « Rendu le » (et un badge « supprimé » si l’article a été supprimé depuis). Le bouton PDF génère la **liste du matériel** actuellement attribué au sapeur (type, numéro, taille, date de distribution, avec une colonne « Retour le » à remplir à la main) ; il est aussi disponible pour chaque sapeur du widget de matériel à récupérer.
 
 ## Supprimer un article
@@ -74,8 +75,9 @@ Dans la liste des articles du type, chaque contrôle à usage limité s'appliqua
 
 ## Permissions
 
-Voici les 3 permissions existantes :
+Voici les permissions du module :
 
 - Lecture : Visualisation du matériel de chaque sapeur et en stock
-- Modification : Permet la saisie de matériel, l'attribution, le retour et la saisie des contrôles
+- Modification : Permet la saisie de matériel, l'attribution, le retour, la saisie des contrôles et le traitement des écarts d'inventaire
 - Configuration : Pour configurer les types de matériel, catégories, emplacements et autres paramètres associés
+- Inventaire : Démarrage, saisie et validation des inventaires (voir le guide [Inventaire](inventaire.md))
