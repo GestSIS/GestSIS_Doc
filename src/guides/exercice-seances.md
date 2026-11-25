@@ -13,6 +13,13 @@ Chaque sapeur pourra ensuite ajouter une excuse si le sous-module `Excuse` a ét
 
 Sous les présences, la carte **Travaux liés à l'exercice** regroupe les fiches de travail rattachées à l'exercice (préparation, rédition du matériel…) : c'est là que se saisit le travail effectué en plus de l'exercice. Elles doivent toutes avoir été examinées avant de valider l'exercice, et sont imputées avec lui, voir le guide [Fiche de travail](fiche-travail.md).
 
+## Duplication
+
+Pour un exercice qui revient plusieurs fois dans l'année (roulage des véhicules par exemple), sélectionnez-le dans la liste des exercices puis cliquez sur [!badge Dupliquer] dans la carte `Actions` : une copie est créée avec une nouvelle date et une nouvelle désignation, puis ouverte.
+La copie reprend l'heure, le lieu, la localité, la catégorie, la durée et les communications. Elle reste dans le même exercice comptable que l'original : sa date doit donc être comprise dans celui-ci. Elle démarre au statut `À saisir`.
+
+Si l'option **Garder les sapeurs convoqués** est cochée, les sapeurs convoqués encore actifs sont convoqués à la copie. Seules les convocations sont reprises : ni les présences, ni les excuses, ni les travaux.
+
 ## Validation
 
 Le principe des 4 yeux est appliqué ainsi une fois un événement est saisi, une validation est nécessaire afin de pouvoir le facturer dans le module `Comptabilité`.

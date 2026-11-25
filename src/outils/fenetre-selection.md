@@ -31,5 +31,5 @@ Il est possible de grouper l'affichage des sapeurs avec les options suivantes :
 - Type (Sapeur / Civil / Recrue)
 
 De plus, par défaut les civils sont affichés et les sapeurs inactifs masqués.
-Cependant il est également possible de masquer les civils et d'afficher les sapeurs inactifs.
+Cependant il est également possible de masquer les civils et d'afficher les sapeurs inactifs. Civils masqués, un ancien sapeur resté civil compte comme sapeur inactif.
 Ce qui peut-être utile pour la convocation d'anciens sapeurs.

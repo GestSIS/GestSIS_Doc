@@ -8,6 +8,8 @@ Ce module permet la gestion de l'ensembles des sapeurs et civiles qui collaboren
 Il existe actuellement trois types de personnes, les [!badge sapeurs], les [!badge civils] et les
 [!badge recrues] (candidats en attente de validation, voir [Recrutement](./recrutement.md)).
 
+Une même personne peut être à la fois sapeur et civil, en même temps ou l'un après l'autre : par exemple un ancien sapeur qui reste civil après sa fin de service. Elle apparaît alors dans la liste des sapeurs inactifs et dans celle des civils actifs, et garde tout son historique de sapeur (cours, promotions, interventions).
+
 Les sapeurs et civils actifs peuvent créer un compte GestSIS avec l'adresse email de leur fiche (voir [Utilisateurs](./utilisateur.md)). Les recrues ne le peuvent pas tant qu'elles ne sont pas validées.
 
 !!! Informations
@@ -20,8 +22,12 @@ Seuls les numéros de téléphone avec la case `RTA` cochée sont utilisés dans
 
 ## Mutations
 
-Les mutations permettent de gérer les déménagements ainsi que les départs du SIS.
-Lors du clic sur le bouton [!badge Fin de service], il est possible de supprimer les exercices restants du sapeurs ainsi que de mettre fin à ses fonctions.
+Les mutations permettent de gérer les déménagements ainsi que les départs du SIS. Chaque mutation est de nature [!badge Sapeur] ou [!badge Civil] : ce sont elles qui déterminent si la personne est sapeur, civil ou les deux, et si elle est active.
+Lors du clic sur le bouton [!badge Fin de service], il est possible de supprimer les exercices restants du sapeurs ainsi que de mettre fin à ses fonctions (toutes sont proposées par défaut).
+
+Le bouton [!badge Incorporation civile] ouvre une période civile, par exemple pour un sapeur qui reste civil après sa fin de service. Elle est indépendante des mutations sapeur : une personne peut être sapeur et civil en même temps. Un civil créé depuis le bouton `Ajouter` reçoit directement une incorporation civile à la date saisie, et la période civile se termine en lui saisissant une date de fin.
+
+Lorsqu'un sapeur n'a qu'une seule mutation, le bouton [!badge Repasser en recrue] annule sa validation : sa mutation est supprimée et il repasse en recrue (voir [Recrutement](./recrutement.md)). Cela n'est possible que tant qu'il n'apparaît dans aucun exercice, aucune intervention, aucune écriture et aucun travail.
 
 ## Fonctions, Promotion et Permis
 
